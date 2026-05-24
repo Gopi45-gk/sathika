@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sadhika - Login &amp; Signup</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=EB+Garamond:ital,wght@0,500;1,500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#32302c",
+                        "on-surface": "#1d1b18",
+                        "surface-tint": "#9b414a",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#5a0f1c",
+                        "on-primary-fixed": "#40000d",
+                        "outline": "#887272",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#484015",
+                        "on-surface-variant": "#554243",
+                        "secondary-fixed": "#ffe088",
+                        "on-tertiary-fixed": "#211b00",
+                        "on-primary-fixed-variant": "#7d2a34",
+                        "surface": "#fef8f2",
+                        "secondary-container": "#fed65b",
+                        "tertiary-fixed-dim": "#d4c78f",
+                        "outline-variant": "#dbc0c1",
+                        "primary-fixed": "#ffdadb",
+                        "on-tertiary-fixed-variant": "#4f471b",
+                        "inverse-primary": "#ffb2b6",
+                        "surface-container-low": "#f8f3ed",
+                        "on-background": "#1d1b18",
+                        "background": "#fef8f2",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#de757d",
+                        "secondary": "#735c00",
+                        "surface-variant": "#e7e2dc",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fef8f2",
+                        "primary-fixed-dim": "#ffb2b6",
+                        "surface-container-high": "#ede7e1",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e7e2dc",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dfd9d3",
+                        "tertiary-container": "#b8ac76",
+                        "tertiary-fixed": "#f1e3a9",
+                        "surface-container": "#f3ede7",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed": "#241a00",
+                        "inverse-on-surface": "#f6f0ea",
+                        "tertiary": "#685e31",
+                        "on-secondary-container": "#745c00",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#3a000b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "section-gap": "120px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "subheading-lg": ["EB Garamond"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "subheading-lg": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .input-underline {
+            position: relative;
+        }
+        .input-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: theme('colors.secondary');
+            transition: width 0.3s ease-in-out;
+        }
+        .input-underline:focus-within::after {
+            width: 100%;
+        }
+        .glass-panel {
+            background: rgba(254, 248, 242, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 224, 136, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(90, 15, 28, 0.04);
+        }
+        .maroon-shadow {
+            box-shadow: 0 4px 20px rgba(90, 15, 28, 0.15);
+        }
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            z-index: 100;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+            opacity: 0;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        /* Smooth form transition */
+        .form-view {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .form-view.hidden-view {
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        .form-view.active-view {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            position: relative;
+        }
+    </style>
+
+    <!-- Firebase SDK (compat v10) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js?v=2"></script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+    <div class="flex items-center gap-2 px-5 py-3 rounded-lg shadow-lg text-sm font-body-md" id="toast-inner">
+        <span class="material-symbols-outlined text-[18px]" id="toast-icon">error</span>
+        <span id="toast-message">Error message</span>
+    </div>
+</div>
+
+<main class="flex min-h-screen w-full">
+    <!-- Left Side: Editorial Photography (Hidden on mobile) -->
+    <section class="hidden lg:block lg:w-1/2 relative bg-surface-variant overflow-hidden">
+        <img alt="Sadhika Editorial Saree" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhBW0wT48jLxnQR1Uj1CO12vV6P9liph9VBjuCx5Nucog5VGQx2hXs73P6uKyGFHew8WBV7y-KYpVXMH4Lwyl3g1WO86tcBLUiZmZj5i2QDOYg6n8JYNia6R_6Kxt6vHdmNENaGx6jSkO5KCjJpOCzY137UEwrP-9ym9LRvPYzEQqaN7M5RIzKxxatrC89d7sfgBywEkIW_yk1VUGrZjF-Dx3s7Nd5W9zIZwtWw3mhntk4bQmgDjSRv2OxYppwpjk5DPM_omu4rVs">
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-12 left-12 right-12 z-10 text-on-primary">
+            <h2 class="font-display-lg text-display-lg italic mb-4 drop-shadow-lg text-secondary-fixed">The Legacy</h2>
+            <p class="font-body-lg text-body-lg opacity-90 max-w-md">Enter a world where centuries-old craftsmanship meets modern elegance.</p>
+        </div>
+    </section>
+
+    <!-- Right Side: Login / Signup Form -->
+    <section class="w-full lg:w-1/2 flex items-center justify-center p-margin-mobile md:p-margin-desktop bg-surface relative z-10">
+        <div class="glass-panel w-full max-w-md rounded-xl p-8 md:p-12 relative overflow-hidden transition-all duration-400" style="background: rgba(254, 248, 242, 0.7); border: 1px solid rgba(255, 224, 136, 0.3); box-shadow: 0 8px 32px 0 rgba(90, 15, 28, 0.04);">
+            <!-- Subtle brand watermark -->
+            <div class="absolute -top-10 -right-10 text-primary/5 select-none pointer-events-none">
+                <span class="material-symbols-outlined" style="font-size: 180px;">spa</span>
+            </div>
+
+            <!-- Logo & Header (shared) -->
+            <div class="text-center mb-10 relative z-10">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEB0HbO3uBPbxaPnuOtpmdE2kPgX9HplL9hX2krMtM6xmrB3MIAKZ3YmGV9XQ7_xoeDXydMVz0RGY0rOwSo9mCoBBLU2PHnPprVGtlDIIBnl6BAsLIA9qYkoq2IIkk1DlLaJM6SZxIEuWtmJePTNzcARfPdgm0v3l4lxz8skGJbQfHuPJAqmFt2VLh28DPeZIViS1QmGVkpCRVMLwcrQjg2_Q-UvS9srbyMcxQNQtaL8qtpo0qLKXRDFZiVZ21pMhR4hJbt1spmIM" alt="Satika Logo" class="h-auto max-h-[60px] mx-auto mb-6">
+                <h1 id="form-title" class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2 italic">Welcome Back</h1>
+                <p id="form-subtitle" class="font-body-md text-body-md text-outline">Sign in to continue your journey</p>
+            </div>
+
+            <!-- ========== LOGIN FORM ========== -->
+            <div id="login-view" class="form-view active-view">
+                <form id="login-form" class="space-y-8 relative z-10" method="POST" action="#">
+                    <div class="input-underline group">
+                        <label class="block font-subheading-lg text-subheading-lg text-on-surface-variant mb-1 transition-all duration-300 group-focus-within:text-secondary group-focus-within:italic" for="login-email">Email or Mobile Number</label>
+                        <input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-transparent py-2 font-body-lg text-body-lg text-on-surface placeholder-outline/50 transition-colors" id="login-email" name="email" placeholder="you@example.com or 7904223010" required type="text">
+                    </div>
+                    <div class="input-underline group">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <label class="block font-subheading-lg text-subheading-lg text-on-surface-variant transition-all duration-300 group-focus-within:text-secondary group-focus-within:italic" for="login-password">Password</label>
+                            <a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors duration-300 uppercase underline decoration-secondary/30 underline-offset-4 hover:decoration-primary" href="#">Forgot Password?</a>
+                        </div>
+                        <div class="relative">
+                            <input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-transparent py-2 font-body-lg text-body-lg text-on-surface transition-colors pr-10" id="login-password" name="password" required type="password" autocomplete="current-password">
+                            <button aria-label="Toggle password visibility" class="absolute right-0 top-1/2 -translate-y-1/2 text-outline hover:text-secondary transition-colors" type="button" onclick="togglePasswordVisibility('login-password', this)">
+                                <span class="material-symbols-outlined">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pt-4 space-y-4">
+                        <button id="login-btn" class="w-full bg-primary text-on-primary font-body-lg text-body-lg py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-400 maroon-shadow hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex justify-center items-center gap-2" type="submit">
+                            Login <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                        </button>
+                        <div class="relative flex items-center py-2">
+                            <div class="flex-grow border-t border-outline-variant/50"></div>
+                            <span class="flex-shrink-0 mx-4 text-outline font-label-sm text-label-sm uppercase">or</span>
+                            <div class="flex-grow border-t border-outline-variant/50"></div>
+                        </div>
+                        <button id="google-login-btn" class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md py-3 rounded-DEFAULT hover:bg-surface-container transition-all duration-300 flex justify-center items-center gap-2 border border-outline-variant/30" type="button">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>
+                            Continue with Google
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-8 text-center relative z-10">
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        New to Sadhika?
+                        <a class="text-primary font-semibold hover:text-secondary transition-colors underline decoration-primary/30 underline-offset-4 hover:decoration-secondary cursor-pointer" id="show-signup-link">Create Account</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- ========== SIGNUP FORM ========== -->
+            <div id="signup-view" class="form-view hidden-view">
+                <form id="signup-form" class="space-y-6 relative z-10" method="POST" action="#">
+                    <div class="input-underline group">
+                        <label class="block font-subheading-lg text-subheading-lg text-on-surface-variant mb-1 transition-all duration-300 group-focus-within:text-secondary group-focus-within:italic" for="signup-name">Full Name</label>
+                        <input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-transparent py-2 font-body-lg text-body-lg text-on-surface placeholder-outline/50 transition-colors" id="signup-name" name="displayName" placeholder="Your full name" required type="text">
+                    </div>
+                    <div class="input-underline group">
+                        <label class="block font-subheading-lg text-subheading-lg text-on-surface-variant mb-1 transition-all duration-300 group-focus-within:text-secondary group-focus-within:italic" for="signup-email">Email Address</label>
+                        <input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-transparent py-2 font-body-lg text-body-lg text-on-surface placeholder-outline/50 transition-colors" id="signup-email" name="email" placeholder="you@example.com" required type="email">
+                    </div>
+                    <div class="input-underline group">
+                        <label class="block font-subheading-lg text-subheading-lg text-on-surface-variant mb-1 transition-all duration-300 group-focus-within:text-secondary group-focus-within:italic" for="signup-password">Password</label>
+                        <div class="relative">
+                            <input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-transparent py-2 font-body-lg text-body-lg text-on-surface transition-colors pr-10" id="signup-password" name="password" required type="password" autocomplete="new-password" minlength="6" placeholder="Min. 6 characters">
+                            <button aria-label="Toggle password visibility" class="absolute right-0 top-1/2 -translate-y-1/2 text-outline hover:text-secondary transition-colors" type="button" onclick="togglePasswordVisibility('signup-password', this)">
+                                <span class="material-symbols-outlined">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-underline group">
+                        <label class="block font-subheading-lg text-subheading-lg text-on-surface-variant mb-1 transition-all duration-300 group-focus-within:text-secondary group-focus-within:italic" for="signup-confirm-password">Confirm Password</label>
+                        <div class="relative">
+                            <input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-transparent py-2 font-body-lg text-body-lg text-on-surface transition-colors pr-10" id="signup-confirm-password" name="confirmPassword" required type="password" autocomplete="new-password" minlength="6" placeholder="Re-enter password">
+                            <button aria-label="Toggle password visibility" class="absolute right-0 top-1/2 -translate-y-1/2 text-outline hover:text-secondary transition-colors" type="button" onclick="togglePasswordVisibility('signup-confirm-password', this)">
+                                <span class="material-symbols-outlined">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pt-4 space-y-4">
+                        <button id="signup-btn" class="w-full bg-primary text-on-primary font-body-lg text-body-lg py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-400 maroon-shadow hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex justify-center items-center gap-2" type="submit">
+                            Create Account <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                        </button>
+                        <div class="relative flex items-center py-2">
+                            <div class="flex-grow border-t border-outline-variant/50"></div>
+                            <span class="flex-shrink-0 mx-4 text-outline font-label-sm text-label-sm uppercase">or</span>
+                            <div class="flex-grow border-t border-outline-variant/50"></div>
+                        </div>
+                        <button id="google-signup-btn" class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md py-3 rounded-DEFAULT hover:bg-surface-container transition-all duration-300 flex justify-center items-center gap-2 border border-outline-variant/30" type="button">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>
+                            Continue with Google
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-8 text-center relative z-10">
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        Already have an account?
+                        <a class="text-primary font-semibold hover:text-secondary transition-colors underline decoration-primary/30 underline-offset-4 hover:decoration-secondary cursor-pointer" id="show-login-link">Sign In</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<script>
+    // ========== View Toggle ==========
+    const loginView = document.getElementById('login-view');
+    const signupView = document.getElementById('signup-view');
+    const formTitle = document.getElementById('form-title');
+    const formSubtitle = document.getElementById('form-subtitle');
+    const showSignupLink = document.getElementById('show-signup-link');
+    const showLoginLink = document.getElementById('show-login-link');
+
+    function showView(view) {
+        if (view === 'signup') {
+            loginView.classList.remove('active-view');
+            loginView.classList.add('hidden-view');
+            signupView.classList.remove('hidden-view');
+            signupView.classList.add('active-view');
+            formTitle.textContent = 'Create Account';
+            formSubtitle.textContent = 'Begin your heritage journey';
+        } else {
+            signupView.classList.remove('active-view');
+            signupView.classList.add('hidden-view');
+            loginView.classList.remove('hidden-view');
+            loginView.classList.add('active-view');
+            formTitle.textContent = 'Welcome Back';
+            formSubtitle.textContent = 'Sign in to continue your journey';
+        }
+    }
+
+    showSignupLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showView('signup');
+    });
+
+    showLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showView('login');
+    });
+
+    // ========== Toast Notification ==========
+    let toastTimeout = null;
+
+    function showToast(message, type = 'error') {
+        const toast = document.getElementById('toast');
+        const toastInner = document.getElementById('toast-inner');
+        const toastIcon = document.getElementById('toast-icon');
+        const toastMessage = document.getElementById('toast-message');
+
+        toastMessage.textContent = message;
+
+        if (type === 'error') {
+            toastInner.className = 'flex items-center gap-2 px-5 py-3 rounded-lg shadow-lg text-sm font-body-md bg-error-container text-on-error-container';
+            toastIcon.textContent = 'error';
+        } else if (type === 'success') {
+            toastInner.className = 'flex items-center gap-2 px-5 py-3 rounded-lg shadow-lg text-sm font-body-md bg-tertiary-container text-on-tertiary-container';
+            toastIcon.textContent = 'check_circle';
+        } else {
+            toastInner.className = 'flex items-center gap-2 px-5 py-3 rounded-lg shadow-lg text-sm font-body-md bg-surface-container-high text-on-surface';
+            toastIcon.textContent = 'info';
+        }
+
+        toast.classList.add('show');
+
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4000);
+    }
+
+    // ========== Password Toggle ==========
+    function togglePasswordVisibility(inputId, btn) {
+        const input = document.getElementById(inputId);
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.textContent = 'visibility';
+        } else {
+            input.type = 'password';
+            icon.textContent = 'visibility_off';
+        }
+    }
+
+    // ========== Button Loading State ==========
+    function setButtonLoading(btn, loading) {
+        if (loading) {
+            btn.disabled = true;
+            btn.dataset.originalHtml = btn.innerHTML;
+            btn.innerHTML = '<svg class="animate-spin h-5 w-5 text-on-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+        } else {
+            btn.disabled = false;
+            btn.innerHTML = btn.dataset.originalHtml;
+            btn.classList.remove('opacity-70', 'cursor-not-allowed');
+        }
+    }
+
+    // ========== Login Form Handler ==========
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value;
+        const loginBtn = document.getElementById('login-btn');
+        if (!email || !password) {
+            showToast('Please fill in all fields.');
+            return;
+        }
+
+        // Admin Custom Login Intercept (Permanent Firebase Admin)
+        if (email === '7904223010' && password === '123654') {
+            setButtonLoading(loginBtn, true);
+            const adminEmail = '7904223010@sadhika.com';
+            try {
+                // Try to login first
+                const result = await signInWithEmail(adminEmail, password);
+                showToast('Admin Login successful! Redirecting…', 'success');
+                setTimeout(() => { 
+                    localStorage.setItem('sadhika_admin_logged_in', 'true');
+                    window.location.href = 'admin.html';
+                }, 800);
+            } catch (error) {
+                // If the account doesn't exist yet, automatically create it
+                if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential' || error.message.includes('No account') || error.message.includes('Invalid credentials')) {
+                    try {
+                        await signUpWithEmail(adminEmail, password, 'Master Admin');
+                        showToast('Admin Account initialized! Redirecting…', 'success');
+                        setTimeout(() => { 
+                            localStorage.setItem('sadhika_admin_logged_in', 'true');
+                            window.location.href = 'admin.html';
+                        }, 800);
+                    } catch (signUpError) {
+                        showToast(signUpError.message);
+                        setButtonLoading(loginBtn, false);
+                    }
+                } else {
+                    showToast(error.message);
+                    setButtonLoading(loginBtn, false);
+                }
+            }
+            return; // Stop execution here for the admin intercept
+        }
+
+        // Proceed with regular Firebase Auth
+        setButtonLoading(loginBtn, true);
+        try {
+            const result = await signInWithEmail(email, password);
+            showToast('Login successful! Redirecting…', 'success');
+            setTimeout(() => { 
+                if (result.userData && result.userData.email === '7904223010@sadhika.com') {
+                    localStorage.setItem('sadhika_admin_logged_in', 'true');
+                    window.location.href = 'admin.html';
+                } else {
+                    window.location.href = 'dashboard.html'; 
+                }
+            }, 800);
+        } catch (error) {
+            showToast(error.message);
+            setButtonLoading(loginBtn, false);
+        }
+    });
+
+    // ========== Google Login Handler ==========
+    document.getElementById('google-login-btn').addEventListener('click', async () => {
+        const btn = document.getElementById('google-login-btn');
+        setButtonLoading(btn, true);
+        try {
+            const result = await signInWithGoogle();
+            showToast('Login successful! Redirecting…', 'success');
+            setTimeout(() => { 
+                if (result.userData && result.userData.email === '7904223010@sadhika.com') {
+                    localStorage.setItem('sadhika_admin_logged_in', 'true');
+                    window.location.href = 'admin.html';
+                } else {
+                    window.location.href = 'dashboard.html'; 
+                }
+            }, 800);
+        } catch (error) {
+            showToast(error.message);
+            setButtonLoading(btn, false);
+        }
+    });
+
+    // ========== Google Signup Handler ==========
+    document.getElementById('google-signup-btn').addEventListener('click', async () => {
+        const btn = document.getElementById('google-signup-btn');
+        setButtonLoading(btn, true);
+        try {
+            await signInWithGoogle();
+            showToast('Account created! Redirecting…', 'success');
+            setTimeout(() => { window.location.href = 'dashboard.html'; }, 800);
+        } catch (error) {
+            showToast(error.message);
+            setButtonLoading(btn, false);
+        }
+    });
+
+    // ========== Signup Form Handler ==========
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('signup-name').value.trim();
+        const email = document.getElementById('signup-email').value.trim();
+        const password = document.getElementById('signup-password').value;
+        const confirmPassword = document.getElementById('signup-confirm-password').value;
+        const signupBtn = document.getElementById('signup-btn');
+
+        if (!name || !email || !password || !confirmPassword) {
+            showToast('Please fill in all fields.');
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            showToast('Passwords do not match.');
+            return;
+        }
+
+        if (password.length < 6) {
+            showToast('Password must be at least 6 characters.');
+            return;
+        }
+
+        setButtonLoading(signupBtn, true);
+        try {
+            const result = await signUpWithEmail(email, password, name);
+            showToast('Account created successfully! Redirecting…', 'success');
+            setTimeout(() => { 
+                if (result.userData && result.userData.email === '7904223010@sadhika.com') {
+                    localStorage.setItem('sadhika_admin_logged_in', 'true');
+                    window.location.href = 'admin.html';
+                } else {
+                    window.location.href = 'dashboard.html'; 
+                }
+            }, 800);
+        } catch (error) {
+            showToast(error.message);
+            setButtonLoading(signupBtn, false);
+        }
+    });
+
+    // ========== Auth State Check ==========
+    // If already logged in, redirect to correct dashboard based on role
+    if (typeof onAuthStateChanged === 'function') {
+        onAuthStateChanged(async (user) => {
+            if (user) {
+                try {
+                    const userData = await syncUserWithBackend(user);
+                    if (userData && userData.email === '7904223010@sadhika.com') {
+                        localStorage.setItem('sadhika_admin_logged_in', 'true');
+                        window.location.href = 'admin.html';
+                    } else {
+                        window.location.href = 'dashboard.html';
+                    }
+                } catch (e) {
+                    window.location.href = 'dashboard.html';
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
+

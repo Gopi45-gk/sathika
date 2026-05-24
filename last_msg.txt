@@ -1,0 +1,74 @@
+<USER_REQUEST>
+"afte the user click the saree it  will go to these stepls"<!-- SADHIKA | Banarasi Silk Saree Details -->
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Details - Vastra Heritage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=EB+Garamond:ital,wght@0,500;1,500&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#32302c",
+                    "on-surface": "#1d1b18",
+                    "surface-tint": "#9b414a",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#5a0f1c",
+                    "on-primary-fixed": "#40000d",
+                    "outline": "#887272",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#484015",
+                    "on-surface-variant": "#554243",
+                    "secondary-fixed": "#ffe088",
+                    "on-tertiary-fixed": "#211b00",
+                    "on-primary-fixed-variant": "#7d2a34",
+                    "surface": "#fef8f2",
+                    "secondary-container": "#fed65b",
+                    "tertiary-fixed-dim": "#d4c78f",
+                    "outline-variant": "#dbc0c1",
+                    "primary-fixed": "#ffdadb",
+                    "on-tertiary-fixed-variant": "#4f471b",
+                    "inverse-p
+<truncated 45215 bytes>
+>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=EB+Garamond:ital,wght@0,500;1,500&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#32302c",
+                        "on-surface": "#1d1b18",
+                        "surface-tint": "#9b414a",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#5a0f1c",
+                        "on-primary-fixed": "#40000d",
+                        "outline": "#887272",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#484015",
+                        "on-surface-variant": "#554243",
+                        "secondary-fixed": "#ffe088",
+                        "on-tertiary-fixed": "#211b00",
+                        "on-primary-fixed-variant": "#7d2a34",
+                        "surface": "#fef8f2",
+                        "secondary-container": "#fed65b",
+                        "tertiary-fixed-dim": "#d4c78f",
+                        "outline-variant": "#dbc0c1",
+                        "primary-fixed": "#ffdadb",
+                        "on-tertiary-fixed-variant": "#4f471b",
+                        "inverse-primary": "#ffb2b6",
+                        "surface-container-low":
+<truncated 66189 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.

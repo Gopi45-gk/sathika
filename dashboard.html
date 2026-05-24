@@ -1,0 +1,600 @@
+<!-- SADHIKA | Home Dashboard -->
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sadhika - Home</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=EB+Garamond:ital,wght@0,500;1,500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#32302c",
+                        "on-surface": "#1d1b18",
+                        "surface-tint": "#9b414a",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#5a0f1c",
+                        "on-primary-fixed": "#40000d",
+                        "outline": "#887272",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#484015",
+                        "on-surface-variant": "#554243",
+                        "secondary-fixed": "#ffe088",
+                        "on-tertiary-fixed": "#211b00",
+                        "on-primary-fixed-variant": "#7d2a34",
+                        "surface": "#fef8f2",
+                        "secondary-container": "#fed65b",
+                        "tertiary-fixed-dim": "#d4c78f",
+                        "outline-variant": "#dbc0c1",
+                        "primary-fixed": "#ffdadb",
+                        "on-tertiary-fixed-variant": "#4f471b",
+                        "inverse-primary": "#ffb2b6",
+                        "surface-container-low": "#f8f3ed",
+                        "on-background": "#1d1b18",
+                        "background": "#fef8f2",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#de757d",
+                        "secondary": "#735c00",
+                        "surface-variant": "#e7e2dc",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fef8f2",
+                        "primary-fixed-dim": "#ffb2b6",
+                        "surface-container-high": "#ede7e1",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e7e2dc",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dfd9d3",
+                        "tertiary-container": "#b8ac76",
+                        "tertiary-fixed": "#f1e3a9",
+                        "surface-container": "#f3ede7",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed": "#241a00",
+                        "inverse-on-surface": "#f6f0ea",
+                        "tertiary": "#685e31",
+                        "on-secondary-container": "#745c00",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#3a000b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "section-gap": "120px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "subheading-lg": ["EB Garamond"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "subheading-lg": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 224, 136, 0.3);
+            box-shadow: 0 4px 30px rgba(90, 15, 28, 0.04);
+        }
+        .glass-card {
+            background: rgba(254, 248, 242, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 224, 136, 0.2);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(58, 0, 11, 0.7) 0%, rgba(90, 15, 28, 0.5) 50%, rgba(58, 0, 11, 0.7) 100%);
+        }
+        .category-overlay {
+            background: linear-gradient(to top, rgba(58, 0, 11, 0.85) 0%, rgba(58, 0, 11, 0.3) 50%, transparent 100%);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        /* User dropdown */
+        .user-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.3s ease;
+        }
+        .user-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- Firebase SDK (compat v10) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js?v=2"></script>
+    <script src="js/firestore.js?v=2"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+<!-- TopNavBar (Fixed) -->
+<header class="bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-secondary/20 shadow-sm shadow-primary/5">
+    <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+        <!-- Logo -->
+        <a href="dashboard.html" class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary italic cursor-pointer transition-transform duration-400 ease-out hover:scale-105">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB__oJVlSdIUGDyb_SsxVm0R4Y4uLJqewDzfAELkV_jSDMcrlVkN1rqqc8VoLqzBHNbVWRAXwYBx1mRGXJljHL-1RIXUL7I8dUDnOteTPmsQHU92twg3v1b_bDT2-OuWY5dH9OikJi51gWzt76T-d2FOeQ2uDlyrfxAluebNUasr9ZA4O0YuRt6AHRIGkVuVp4o4upyJMchFfY3zqp4cXbi8cyhb_zTcFKviSLGKm0iVouSyQd_9MtFxRqQR5vUq4ZHpDzhhwLqhGg" alt="Sadhika" class="h-12 md:h-16 w-auto object-contain">
+        </a>
+        <!-- Desktop Nav Links -->
+        <nav class="hidden md:flex gap-8 font-subheading-lg text-subheading-lg tracking-wide">
+            <a class="text-on-surface hover:text-secondary transition-colors duration-300 cursor-pointer transition-transform duration-400 ease-out hover:scale-105" href="collections.html">Collections</a>
+            </nav>
+        <!-- Right Icons -->
+        <div class="flex gap-4 items-center text-primary">
+            <!-- Cart Icon with Badge -->
+            <a href="cart.html" class="relative cursor-pointer transition-transform duration-400 ease-out hover:scale-105">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span class="cart-badge absolute -top-2 -right-2 bg-secondary text-on-secondary text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center" style="display: none;">0</span>
+            </a>
+            <!-- Favorite -->
+            <span class="material-symbols-outlined cursor-pointer transition-transform duration-400 ease-out hover:scale-105 hidden md:inline">favorite</span>
+            <!-- User / Person Icon with Dropdown -->
+            <div class="relative">
+                <button id="user-menu-btn" class="flex items-center gap-2 cursor-pointer transition-transform duration-400 ease-out hover:scale-105">
+                    <span class="material-symbols-outlined">person</span>
+                    <span id="nav-user-name" class="hidden md:inline font-body-md text-sm text-on-surface-variant truncate max-w-[100px]"></span>
+                </button>
+                <!-- User Dropdown -->
+                <div id="user-dropdown" class="user-dropdown absolute right-0 top-full mt-2 w-48 bg-surface rounded-xl shadow-lg shadow-primary/10 border border-outline-variant/30 py-2 z-50">
+                    <div id="dropdown-user-info" class="px-4 py-2 border-b border-outline-variant/20">
+                        <p id="dropdown-user-name" class="font-subheading-lg text-sm text-primary truncate"></p>
+                        <p id="dropdown-user-email" class="font-body-md text-xs text-on-surface-variant truncate"></p>
+                    </div>
+                    <button onclick="signOut()" class="w-full text-left px-4 py-2 font-body-md text-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">logout</span>
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden cursor-pointer transition-transform duration-400 ease-out hover:scale-105">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-primary/40 backdrop-blur-sm z-[60] hidden" onclick="closeMobileMenu()"></div>
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-surface z-[70] shadow-2xl shadow-primary/20 flex flex-col">
+    <div class="flex justify-between items-center p-6 border-b border-outline-variant/20">
+        <span class="font-subheading-lg text-subheading-lg text-primary">Menu</span>
+        <button onclick="closeMobileMenu()" class="text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <nav class="flex flex-col p-6 gap-4 font-subheading-lg text-subheading-lg">
+        <a class="text-on-surface hover:text-secondary transition-colors duration-300 py-2 border-b border-outline-variant/10" href="collections.html">Collections</a>
+        </nav>
+    <div class="mt-auto p-6 border-t border-outline-variant/20">
+        <a href="cart.html" class="flex items-center gap-2 text-on-surface hover:text-secondary transition-colors font-body-md py-2">
+            <span class="material-symbols-outlined">shopping_bag</span> Cart
+            <span class="cart-badge ml-auto bg-secondary text-on-secondary text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center" style="display: none;">0</span>
+        </a>
+        <a href="#" class="flex items-center gap-2 text-on-surface hover:text-secondary transition-colors font-body-md py-2">
+            <span class="material-symbols-outlined">favorite</span> Wishlist
+        </a>
+        <button onclick="signOut()" class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-body-md py-2 w-full">
+            <span class="material-symbols-outlined">logout</span> Sign Out
+        </button>
+    </div>
+</div>
+
+<!-- Back Button -->
+<div class="fixed top-[100px] left-4 md:left-8 z-40">
+    <button onclick="history.back()" class="flex items-center justify-center w-10 h-10 rounded-full bg-surface/80 backdrop-blur-sm border border-outline-variant/30 text-primary shadow-sm shadow-primary/5 hover:bg-surface-container-high hover:shadow-md transition-all duration-300 cursor-pointer" aria-label="Go back">
+        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+    </button>
+</div>
+
+<!-- Hero Section -->
+<section class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden mt-0">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX-qcc1wzeIVW97lR0kIA-p2mdkN9jMGnm8EamZvkj3zQwbV15KJcCg1kSHR_YKt1r9SzcYQ1OXTikGJIPkfNfWflrYm-YAn-gFrus0uUThEbsTeLNAu6-oTy2B_00KDDpGTC1TXBsLBQaiR6mCmaqjXJc_OkLCgcSelgEWYX0APHSP845SrIt2ebq-iZSZVoTQVx1H6nG96RtDpcsb3APot_9akSK8iI8Gb7PiYTBuCDhtoQJVN_UyIIJSdIBzh8lAkgFaaGTh4U" alt="Royal Weave Collection" class="w-full h-full object-cover object-center">
+        <div class="hero-gradient absolute inset-0"></div>
+    </div>
+    <!-- Content Overlay -->
+    <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full py-32">
+        <div class="glass-panel max-w-3xl rounded-xl p-8 md:p-12 animate-fade-in-up">
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-4 block">New Arrival</span>
+            <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">The Royal Weave Collection</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">Discover handcrafted masterpieces that blend centuries-old weaving traditions with contemporary elegance. Each saree tells a story of heritage and artistry.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="collections.html" class="bg-primary text-on-primary py-4 px-8 rounded-md font-body-lg text-body-lg hover:bg-primary-container hover:shadow-lg transition-all duration-400 ease-out flex items-center justify-center gap-2 group">
+                    Shop Collection
+                    <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+                <a href="#" class="bg-transparent text-primary py-4 px-8 rounded-md font-body-lg text-body-lg border border-primary hover:bg-primary/5 transition-all duration-400 ease-out flex items-center justify-center gap-2">
+                    Explore Lookbook
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Curated Categories Bento Grid -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full py-section-gap">
+    <div class="text-center mb-16">
+        <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-4 block">Curated For You</span>
+        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Shop by Category</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter auto-rows-[300px] md:auto-rows-[400px]">
+        <!-- Card 1 (Large - spans 2 cols) -->
+        <a href="collections.html" class="relative group overflow-hidden rounded-xl md:col-span-2 md:row-span-1 cursor-pointer">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9zjBc0f3VVRi7Ub9VtIy5qxfDGMF0kV4Q1RNnKlxM-XTLo3OeHnF_fnlXMbZBXOPVMCKLrAr3Gny1P93fJoOOo54kMmVMwuevYS1xkmb2g3g1lzfb8z-9ePwHDHSqVMd7cN5_DGe4O-sW5hGBHLkn5p88HNsLFkUB-NddCVzKu-XHhCg2ug7bvYMIWX01TeMcJDJOFgVqYqYnSAGcJGsL2Lzy8_ZS8Qi_vI0L_XqJvGtpkGW7Vy7f9JNr-7c5z1C2SjFahAXWdA" alt="Banarasi Silk Collection" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+            <div class="category-overlay absolute inset-0 flex flex-col justify-end p-8">
+                <span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest mb-2">Heritage Weave</span>
+                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary mb-2">Banarasi Silk</h3>
+                <p class="font-body-md text-body-md text-on-primary/80 max-w-md">Timeless elegance from the looms of Varanasi, adorned with intricate zari work.</p>
+                <span class="inline-flex items-center gap-1 text-secondary-fixed font-label-sm text-label-sm uppercase mt-4 group-hover:gap-2 transition-all duration-300">
+                    Explore <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </span>
+            </div>
+        </a>
+        <!-- Card 2 (Small) -->
+        <a href="collections.html" class="relative group overflow-hidden rounded-xl cursor-pointer">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxPtEgk1-hn7LS-VqcSyM3kgpebhbXHKj2nIhVsfJqbP8gqLJkshSPFyH4faqwcpFVnUY-IqjB8p3q8WwG1P9x0AvnuEzPdOdB3VcVE1C1q5fREu8Cr2jzGFWLrKgkwS0oXvPFGWYWYkILbLQSiCuRpOOkJ0NfNiPcQh4FfJlH9WUy0Ny7kwSSGC9VEr2qL_p62pXLPr8bTxhpuLzTpkMNqM6rLYI8JNvp9zcnuHMiEqbR6i-_a2bLKpjQMhCIDY0o6b1SPX4Kg" alt="Kanjivaram Collection" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+            <div class="category-overlay absolute inset-0 flex flex-col justify-end p-6">
+                <span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest mb-2">Temple Traditions</span>
+                <h3 class="font-subheading-lg text-subheading-lg text-on-primary">Kanjivaram</h3>
+                <span class="inline-flex items-center gap-1 text-secondary-fixed font-label-sm text-label-sm uppercase mt-3 group-hover:gap-2 transition-all duration-300">
+                    Explore <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </span>
+            </div>
+        </a>
+        <!-- Card 3 (Small) -->
+        <a href="collections.html" class="relative group overflow-hidden rounded-xl cursor-pointer lg:col-span-1 md:col-span-2 lg:col-span-1">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb1O3-3DjmM1iSIu6Y3HcjjJzUm4TWNNBZgdjEZUwV3HhLaUdcCj1bDIbI6EMKgAi3xfqYS8SuMnb0F8dUUmGp1yK3Sg3q89hs57I7gy5VKSFTcE_oi_jVpQnAilmJm-8xxuCjnO86iWxUZMfk4p4YrPQCwi6oSCw3b8fIz3qxMuD7yl5YA3VapmB3-4mHpKkUoRXSSiA0CeZLYLCpL_WAbhP1LxZP3JFN3gSFZtJDAhYxf4g0qgFnbz8FZ1Dk_LdqFPfxQiN0Y" alt="Pure Silk Collection" class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105">
+            <div class="category-overlay absolute inset-0 flex flex-col justify-end p-6">
+                <span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest mb-2">Luxe Fabric</span>
+                <h3 class="font-subheading-lg text-subheading-lg text-on-primary">Pure Silk</h3>
+                <span class="inline-flex items-center gap-1 text-secondary-fixed font-label-sm text-label-sm uppercase mt-3 group-hover:gap-2 transition-all duration-300">
+                    Explore <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- Featured Products (Firestore-driven with static fallback) -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full pb-section-gap">
+    <div class="flex justify-between items-end mb-12">
+        <div>
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-4 block">Handpicked</span>
+            <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Featured Pieces</h2>
+        </div>
+        <a href="collections.html" class="hidden md:flex items-center gap-1 font-label-sm text-label-sm text-secondary uppercase tracking-widest hover:text-primary transition-colors duration-300 group">
+            View All <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </a>
+    </div>
+    <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+        <!-- Products will be loaded dynamically or show static fallback -->
+    </div>
+    <div class="mt-8 text-center md:hidden">
+        <a href="collections.html" class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary uppercase tracking-widest hover:text-primary transition-colors duration-300">
+            View All Collection <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+    </div>
+</section>
+
+<!-- Join the Legacy - Newsletter -->
+<section class="w-full bg-primary relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 20% 50%, rgba(255, 224, 136, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(255, 178, 182, 0.2) 0%, transparent 50%);"></div>
+    </div>
+    <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-20 md:py-28 text-center">
+        <span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest mb-4 block">Be Part of the Story</span>
+        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-primary mb-4 italic">Join the Legacy</h2>
+        <p class="font-body-lg text-body-lg text-on-primary/80 max-w-lg mx-auto mb-10">Subscribe to receive exclusive previews of new collections, artisan stories, and members-only offers.</p>
+        <form onsubmit="handleNewsletterSubmit(event)" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <div class="flex-grow relative">
+                <input type="email" id="newsletter-email" placeholder="Your email address" class="w-full bg-on-primary/10 border border-on-primary/20 text-on-primary placeholder-on-primary/40 px-6 py-4 rounded-md font-body-md focus:ring-2 focus:ring-secondary-fixed focus:border-transparent transition-all" required>
+            </div>
+            <button type="submit" class="bg-secondary-fixed text-on-secondary-fixed py-4 px-8 rounded-md font-body-lg text-body-lg hover:bg-secondary-fixed-dim transition-all duration-400 ease-out flex items-center justify-center gap-2 whitespace-nowrap font-semibold">
+                Subscribe
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </button>
+        </form>
+        <p class="font-body-md text-sm text-on-primary/50 mt-4">No spam. Unsubscribe anytime.</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary font-body-md text-body-md w-full border-t border-secondary/30">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto">
+        <div class="flex flex-col gap-4">
+            <div class="font-display-lg text-display-lg text-secondary-fixed italic transition-all duration-300">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB__oJVlSdIUGDyb_SsxVm0R4Y4uLJqewDzfAELkV_jSDMcrlVkN1rqqc8VoLqzBHNbVWRAXwYBx1mRGXJljHL-1RIXUL7I8dUDnOteTPmsQHU92twg3v1b_bDT2-OuWY5dH9OikJi51gWzt76T-d2FOeQ2uDlyrfxAluebNUasr9ZA4O0YuRt6AHRIGkVuVp4o4upyJMchFfY3zqp4cXbi8cyhb_zTcFKviSLGKm0iVouSyQd_9MtFxRqQR5vUq4ZHpDzhhwLqhGg" alt="Sadhika" class="h-12 md:h-16 w-auto object-contain brightness-0 invert">
+            </div>
+            <p class="text-on-primary/80 mt-4">�</p>
+        </div>
+        <div class="flex flex-col gap-2">
+            <a class="text-on-primary/80 hover:text-secondary-fixed transition-colors duration-300 hover:opacity-100" href="#">The Legacy</a>
+            <a class="text-on-primary/80 hover:text-secondary-fixed transition-colors duration-300 hover:opacity-100" href="#">Sustainable Silk</a>
+            <a class="text-on-primary/80 hover:text-secondary-fixed transition-colors duration-300 hover:opacity-100" href="#">Shipping &amp; Returns</a>
+        </div>
+        <div class="flex flex-col gap-2">
+            <a class="text-on-primary/80 hover:text-secondary-fixed transition-colors duration-300 hover:opacity-100" href="#">Privacy Policy</a>
+            <a class="text-on-primary/80 hover:text-secondary-fixed transition-colors duration-300 hover:opacity-100" href="#">Contact Us</a>
+            <a class="text-on-primary/80 hover:text-secondary-fixed transition-colors duration-300 hover:opacity-100" href="#">Store Locator</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ========== Auth Protection ==========
+    function requireAuth() {
+        return new Promise((resolve, reject) => {
+            onAuthStateChanged((user) => {
+                if (!user) {
+                    window.location.href = 'login.html';
+                    reject('Not authenticated');
+                } else {
+                    resolve(user);
+                }
+            });
+        });
+    }
+
+    // ========== Mobile Menu ==========
+    function openMobileMenu() {
+        document.getElementById('mobile-menu').classList.add('open');
+        document.getElementById('mobile-menu-overlay').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        document.getElementById('mobile-menu').classList.remove('open');
+        document.getElementById('mobile-menu-overlay').classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('mobile-menu-btn').addEventListener('click', openMobileMenu);
+
+    // ========== User Dropdown ==========
+    const userMenuBtn = document.getElementById('user-menu-btn');
+    const userDropdown = document.getElementById('user-dropdown');
+
+    userMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', () => {
+        userDropdown.classList.remove('show');
+    });
+
+    // ========== Cart Badge ==========
+    function initCartBadge() {
+        if (typeof updateCartBadge === 'function') {
+            updateCartBadge();
+        }
+    }
+
+    // ========== Static Fallback Products ==========
+    const staticProducts = [
+        {
+            name: 'Crimson Zari Banarasi',
+            category: 'Pure Silk',
+            price: 24500,
+            originalPrice: 28800,
+            rating: 4.9,
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlnQn743wiNXsZnyMAa6O-wENPrhbEbyipDOwuapz8wFGLZBBAMDpY3qRkC0rw5LEIj7g4GU9cgrtWW-MANWwpH068-pN0FqDnB5GprUIhCHwp8IcFHU-HJUSXQbqvsmgyQ0gpt2Du_4Silz9DQ_qTH-Q7z7r6nnHlYwP5lQDBRO2xxNZORPt7Mu7DOCt_wAgtBBKZyP4G6KKq9COQ-dupFdSQZXkhu2VYzPwv8ZkaveVAnR8WLNHF74f4Wj9I94YwhkqaA8PrggY',
+            discount: '-15%'
+        },
+        {
+            name: 'Emerald Temple Border',
+            category: 'Kanjeevaram',
+            price: 32000,
+            originalPrice: null,
+            rating: 4.8,
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3-JMwE4uHJYlacaGqtTn3bMXAQeUs6_oCnb5I6Gx9Ojx4DiGbLhMgKonIgLWtznMjdeezV-qwwKlQCsWzvOpiWIYQ4Drrkp-cne6BYV9Rk1fCz95PDmw6rJji-yV6mbv8-wkayzpvg0m5vKj68bZ2EEmYghqDH9XqK8cVMShz8BcrID7c1IicpRnXmgs-vHzDEmIfCxUIuIJUZM2Vz-Q5yRC77uInMR-cGnTEpX9k2KEc18KAbNwWpPFcUdsh2toz_idpw-k0BRc',
+            discount: null
+        },
+        {
+            name: 'Ivory Mist Chanderi',
+            category: 'Cotton Silk',
+            price: 18500,
+            originalPrice: null,
+            rating: 4.7,
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-CcG0jKZgHgfGnIiSlyGT7bSEL1u4qXkWXMNUMRP_1hzN4-draaqrSY7S60ZLov3jhS0uv1EY8sfk0e70K8oKOrf9h50j5mR0fEAHp8qpmexE2kUU2ZlKWRVnbSbBZLMX6garEYukhahdnptDDk_5X-GjQ_uqgnJrJgeLo2HsbgOMBlBfXJOV0OVIUoRkikjZkAx5BVcdLUwsP6jfTQ6oyNWtz4Tjhq1OIc1K81wLJfnqqPxeIHnUEhsGxM0eCGDoPwj9_GXiBDA',
+            discount: null
+        },
+        {
+            name: 'Royal Navy Paithani',
+            category: 'Heritage Silk',
+            price: 38500,
+            originalPrice: 42000,
+            rating: 4.9,
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuADJaoRx7wgBINAs4s8IRN5BwBOT38z1Ey-TfD7Cp4kRS7fWi1kRDjUgyko-P8Qrmvw0iWYhvG9xa5WiuBl1qP4jegqeuKdFXgxWKMXu9U0-kN4t-DUZnaYT5wRrwMeNsa26l4o_ZMMdkXW9JApSihprqweXmPCBAj_-9P7bkiXeT7uuB6RnxQmQGiPMZtcu_Kb8frKhGgsMNyQ5ihuU14zWZhdPRkTl2TfpRvGLCDA9xoxYF7bdLgNF3zjtqDj_TGwsoU_KwDgwLk',
+            discount: '-8%'
+        }
+    ];
+
+    // ========== Render Product Card ==========
+    function renderProductCard(product) {
+        const priceFormatted = '₹' + product.price.toLocaleString('en-IN');
+        const originalPriceHTML = product.originalPrice
+            ? `<span class="font-body-md text-body-md text-on-surface-variant line-through text-sm">₹${product.originalPrice.toLocaleString('en-IN')}</span>`
+            : '';
+        const discountBadge = product.discount
+            ? `<div class="absolute top-4 left-4 z-10"><span class="bg-primary text-on-primary font-label-sm text-label-sm px-2 py-1 rounded-full">${product.discount}</span></div>`
+            : '';
+
+        return `
+        <div class="group relative bg-surface rounded-xl overflow-hidden shadow-sm shadow-primary/5 hover:shadow-lg hover:shadow-primary/10 transition-all duration-400 cursor-pointer" onclick="window.location.href='product.html?id=${product.id}'">
+            ${discountBadge}
+            <button class="absolute top-4 right-4 z-10 text-on-surface-variant hover:text-primary transition-colors bg-surface/50 backdrop-blur-sm p-1 rounded-full" onclick="event.stopPropagation();">
+                <span class="material-symbols-outlined">favorite</span>
+            </button>
+            <div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative">
+                <img alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="${product.image}">
+            </div>
+            <div class="p-5 glass-card border-t-0">
+                <div class="flex justify-between items-start mb-2">
+                    <div>
+                        <h3 class="font-subheading-lg text-subheading-lg text-primary truncate pr-2">${product.name}</h3>
+                        <p class="font-label-sm text-label-sm text-secondary uppercase mt-1">${product.category}</p>
+                    </div>
+                    <div class="flex items-center text-secondary">
+                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="font-body-md text-body-md ml-1">${product.rating}</span>
+                    </div>
+                </div>
+                <div class="flex items-end gap-2 mt-2">
+                    <span class="font-body-lg text-body-lg text-on-surface font-semibold">${priceFormatted}</span>
+                    ${originalPriceHTML}
+                </div>
+            </div>
+        </div>`;
+    }
+
+    // ========== Load Featured Products ==========
+    async function loadFeaturedProducts() {
+        const grid = document.getElementById('featured-products-grid');
+
+        try {
+            // Try to fetch from Firestore
+            if (typeof getAllProducts === 'function') {
+                const products = await getAllProducts();
+                if (products && products.length > 0) {
+                    // Use Firestore products (limit to 4)
+                    const featured = products.slice(0, 4).map(p => ({
+                        id: p.id,
+                        name: p.name || 'Untitled Saree',
+                        category: p.category || 'Silk',
+                        price: p.price || 0,
+                        originalPrice: p.originalPrice || null,
+                        rating: p.rating || 4.5,
+                        image: (p.images && p.images[0]) || p.image || staticProducts[0].image,
+                        discount: p.discount || null
+                    }));
+                    grid.innerHTML = featured.map(renderProductCard).join('');
+                    return;
+                }
+            }
+        } catch (e) {
+            console.log('Firestore not configured or no products, using static fallback:', e.message);
+        }
+
+        // Static fallback
+        grid.innerHTML = staticProducts.map(renderProductCard).join('');
+    }
+
+    // ========== Newsletter Handler ==========
+    function handleNewsletterSubmit(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value;
+        if (email) {
+            // Store in Firestore if available
+            try {
+                if (typeof db !== 'undefined') {
+                    db.collection('newsletter').add({
+                        email: email,
+                        subscribedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                }
+            } catch (err) {
+                console.log('Newsletter save error:', err);
+            }
+            document.getElementById('newsletter-email').value = '';
+            // Show simple feedback
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span> Subscribed!';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+            }, 3000);
+        }
+    }
+
+    // ========== Initialize Page ==========
+    document.addEventListener('DOMContentLoaded', () => {
+        // Auth protection
+        requireAuth().then((user) => {
+            // Set user info in nav
+            const displayName = user.displayName || user.email?.split('@')[0] || 'User';
+            const navUserName = document.getElementById('nav-user-name');
+            const dropdownUserName = document.getElementById('dropdown-user-name');
+            const dropdownUserEmail = document.getElementById('dropdown-user-email');
+
+            if (navUserName) navUserName.textContent = displayName;
+            if (dropdownUserName) dropdownUserName.textContent = displayName;
+            if (dropdownUserEmail) dropdownUserEmail.textContent = user.email || '';
+
+            // Init cart badge
+            initCartBadge();
+
+            // Load featured products
+            loadFeaturedProducts();
+        }).catch(() => {
+            // Redirect handled in requireAuth
+        });
+    });
+</script>
+
+</body>
+</html>
+

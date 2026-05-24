@@ -1,0 +1,369 @@
+<!-- SADHIKA | Your Shopping Bag -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Shopping Cart - Sadhika</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=EB+Garamond:ital,wght@0,500;1,500&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#32302c",
+                    "on-surface": "#1d1b18",
+                    "surface-tint": "#9b414a",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#5a0f1c",
+                    "on-primary-fixed": "#40000d",
+                    "outline": "#887272",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#484015",
+                    "on-surface-variant": "#554243",
+                    "secondary-fixed": "#ffe088",
+                    "on-tertiary-fixed": "#211b00",
+                    "on-primary-fixed-variant": "#7d2a34",
+                    "surface": "#fef8f2",
+                    "secondary-container": "#fed65b",
+                    "tertiary-fixed-dim": "#d4c78f",
+                    "outline-variant": "#dbc0c1",
+                    "primary-fixed": "#ffdadb",
+                    "on-tertiary-fixed-variant": "#4f471b",
+                    "inverse-primary": "#ffb2b6",
+                    "surface-container-low": "#f8f3ed",
+                    "on-background": "#1d1b18",
+                    "background": "#fef8f2",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#de757d",
+                    "secondary": "#735c00",
+                    "surface-variant": "#e7e2dc",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fef8f2",
+                    "primary-fixed-dim": "#ffb2b6",
+                    "surface-container-high": "#ede7e1",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e7e2dc",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dfd9d3",
+                    "tertiary-container": "#b8ac76",
+                    "tertiary-fixed": "#f1e3a9",
+                    "surface-container": "#f3ede7",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-secondary-fixed": "#241a00",
+                    "inverse-on-surface": "#f6f0ea",
+                    "tertiary": "#685e31",
+                    "on-secondary-container": "#745c00",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#3a000b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "section-gap": "120px",
+                    "unit": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "body-md": [
+                            "Be Vietnam Pro"
+                    ],
+                    "label-sm": [
+                            "Be Vietnam Pro"
+                    ],
+                    "subheading-lg": [
+                            "EB Garamond"
+                    ],
+                    "headline-lg": [
+                            "Playfair Display"
+                    ],
+                    "headline-lg-mobile": [
+                            "Playfair Display"
+                    ],
+                    "display-lg": [
+                            "Playfair Display"
+                    ]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "subheading-lg": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 224, 136, 0.3);
+            box-shadow: 0 4px 30px rgba(90, 15, 28, 0.04);
+        }
+        .glass-card {
+             background: rgba(254, 248, 242, 0.6);
+             backdrop-filter: blur(12px);
+             -webkit-backdrop-filter: blur(12px);
+             border: 1px solid rgba(255, 224, 136, 0.2);
+        }
+        .maroon-shadow {
+            box-shadow: 0 4px 20px rgba(58, 0, 11, 0.08);
+        }
+        .cart-item-enter {
+            animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .cart-item-exit {
+            animation: slideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes slideOut {
+            to { opacity: 0; transform: translateX(-40px); height: 0; padding: 0; margin: 0; overflow: hidden; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-secondary/20 shadow-sm shadow-primary/5">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+    <button onclick="history.back()" class="text-primary hover:text-secondary transition-colors cursor-pointer" aria-label="Go back"><span class="material-symbols-outlined text-[28px]">arrow_back</span></button>
+    <a href="dashboard.html" class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary italic cursor-pointer"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU8_gQVR8agiZw55JxeLBoYMO0XlQM9i2CNXdMHEv_ZN1WOlFA3qVT8w3LPQkwM0nFiofBCun5xRVm2XtgpqwJFfHPs4MGdoo_BCAVjTwkE48OljmRpdzw3p18B2l9IaUkCutfX5KyyovDlEszbuD5DgcbBvnFsNsiIaWQ4CA8sZiQkKBvXKZz5ODufSThuLhbbjf_EGfdGh3z18eEnEzdMrx6krWJRY2Ll-y8zxylhpXnAxPviHVPGSIckjEhUk8c-ifb6U2gYc" alt="Sadhika" class="h-12 md:h-16 w-auto object-contain"></a>
+</div>
+<div class="flex gap-4 items-center">
+<a href="cart.html" class="relative">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-105 transition-transform duration-400 ease-out">shopping_bag</span>
+<span class="cart-badge absolute -top-2 -right-2 bg-secondary text-on-secondary text-xs w-5 h-5 rounded-full items-center justify-center font-label-sm hidden">0</span>
+</a>
+</div>
+</div>
+</header>
+
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="mb-12">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-primary">Shopping Cart</h1>
+<p class="font-body-md text-on-surface-variant mt-2">Review your selected items before checkout.</p>
+</div>
+
+<!-- Empty Cart State (hidden by default) -->
+<div id="empty-cart" class="hidden flex flex-col items-center justify-center py-20 text-center">
+    <span class="material-symbols-outlined text-[80px] text-outline-variant mb-6" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+    <h2 class="font-headline-lg-mobile text-primary mb-4">Your Cart is Empty</h2>
+    <p class="font-body-lg text-on-surface-variant mb-8 max-w-md">Looks like you haven't added any heritage pieces yet. Explore our curated collections and find something special.</p>
+    <a href="collections.html" class="bg-primary text-on-primary py-4 px-8 rounded-md font-body-lg text-body-lg hover:bg-primary-container hover:shadow-lg transition-all duration-400 ease-out inline-flex items-center gap-2">
+        Browse Collections
+        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+    </a>
+</div>
+
+<!-- Cart Content (shown when items exist) -->
+<div id="cart-content" class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Product List Area -->
+<div id="cart-items-list" class="lg:col-span-8 flex flex-col gap-6">
+    <!-- Cart items rendered dynamically here -->
+</div>
+<!-- Order Summary Sidebar -->
+<div class="lg:col-span-4 mt-8 lg:mt-0">
+<div class="glass-panel rounded-xl p-8 sticky top-[120px]">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-primary mb-6 text-[32px]">Order Summary</h2>
+<div class="flex flex-col gap-4 mb-8 font-body-md text-on-surface">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Subtotal</span>
+<span id="summary-subtotal">₹0</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Shipping</span>
+<span>Calculated at checkout</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Estimated Tax</span>
+<span id="summary-tax">₹0</span>
+</div>
+<div class="h-[1px] w-full bg-secondary/20 my-2"></div>
+<div class="flex justify-between font-subheading-lg text-subheading-lg text-primary">
+<span>Total</span>
+<span id="summary-total">₹0</span>
+</div>
+</div>
+<!-- Coupon Input -->
+<div class="mb-8">
+<div class="relative group flex items-end">
+<div class="flex-grow">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 transition-all duration-300 group-focus-within:text-primary group-focus-within:-translate-y-1 group-focus-within:font-subheading-lg" for="coupon">Coupon Code</label>
+<input class="w-full bg-transparent border-0 border-b border-secondary/40 px-0 py-2 font-body-md focus:ring-0 focus:border-secondary transition-colors duration-300 placeholder:text-outline-variant text-primary" id="coupon" placeholder="Enter code" type="text">
+</div>
+<button class="ml-4 font-label-sm text-label-sm text-secondary hover:text-primary uppercase tracking-widest transition-colors duration-300 pb-2 border-b border-transparent hover:border-primary">Apply</button>
+</div>
+</div>
+<!-- Checkout Button -->
+<button onclick="window.location.href='checkout.html'" class="w-full bg-primary text-on-primary py-4 rounded-md font-body-lg text-body-lg hover:bg-primary-container hover:shadow-lg transition-all duration-400 ease-out flex items-center justify-center gap-2">
+                    Proceed to Checkout
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<div class="mt-6 flex items-center justify-center gap-2 text-on-surface-variant font-body-md text-sm">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                    Secure SSL Checkout
+                </div>
+</div>
+</div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full mt-section-gap bg-primary text-on-primary border-t border-secondary/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<div class="font-display-lg text-headline-lg-mobile md:text-display-lg text-secondary-fixed italic"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU8_gQVR8agiZw55JxeLBoYMO0XlQM9i2CNXdMHEv_ZN1WOlFA3qVT8w3LPQkwM0nFiofBCun5xRVm2XtgpqwJFfHPs4MGdoo_BCAVjTwkE48OljmRpdzw3p18B2l9IaUkCutfX5KyyovDlEszbuD5DgcbBvnFsNsiIaWQ4CA8sZiQkKBvXKZz5ODufSThuLhbbjf_EGfdGh3z18eEnEzdMrx6krWJRY2Ll-y8zxylhpXnAxPviHVPGSIckjEhUk8c-ifb6U2gYc" alt="Sadhika" class="h-12 md:h-16 w-auto object-contain brightness-0 invert"></div>
+<p class="font-body-md text-body-md text-on-primary/80 mt-4">�</p>
+</div>
+<div class="flex flex-col gap-2 font-body-md text-body-md">
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors hover:opacity-100" href="#">The Legacy</a>
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors hover:opacity-100" href="#">Sustainable Silk</a>
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors hover:opacity-100" href="#">Shipping &amp; Returns</a>
+</div>
+<div class="flex flex-col gap-2 font-body-md text-body-md">
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors hover:opacity-100" href="#">Contact Us</a>
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors hover:opacity-100" href="#">Store Locator</a>
+</div>
+</div>
+</footer>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js?v=2"></script>
+<script src="js/firestore.js?v=2"></script>
+<script>
+// ============================================================
+// Cart Page - Dynamic Rendering
+// ============================================================
+
+const FALLBACK_IMAGES = [
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuADJaoRx7wgBINAs4s8IRN5BwBOT38z1Ey-TfD7Cp4kRS7fWi1kRDjUgyko-P8Qrmvw0iWYhvG9xa5WiuBl1qP4jegqeuKdFXgxWKMXu9U0-kN4t-DUZnaYT5wRrwMeNsa26l4o_ZMMdkXW9JApSihprqweXmPCBAj_-9P7bkiXeT7uuB6RnxQmQGiPMZtcu_Kb8frKhGgsMNyQ5ihuU14zWZhdPRkTl2TfpRvGLCDA9xoxYF7bdLgNF3zjtqDj_TGwsoU_KwDgwLk',
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuB8e_dXsnCOv-OyH-whg_DEuj6Z7L_x00cZD_QsTVDJL8piA6PDNlGLg2Cf0Q0fFHLqeBnOECtoxANaHwbk1Z4LFRN20I1ZLtmGpaPIdQOr7KqMeW4KK59EfyRISIFXByqyz0n_d8M6pB-TP2Jw80L8gzXpOJGLQSNzNs0tzkDi0HrAzw3JdtcaXuDPtIBDJJGPCHcPpr0RgOlGYJKwv4uh3zOgf7P1mfIPZtMzE9oTEijRLY5kbCeVRR9Ixzm_lZcxOoufvI7cyIw'
+];
+
+function formatCurrency(amount) {
+    return '₹' + amount.toLocaleString('en-IN');
+}
+
+function getItemImage(item, index) {
+    if (item.image && item.image.trim() !== '') return item.image;
+    return FALLBACK_IMAGES[index % FALLBACK_IMAGES.length];
+}
+
+function renderCart() {
+    const cart = getLocalCart();
+    const listEl = document.getElementById('cart-items-list');
+    const emptyEl = document.getElementById('empty-cart');
+    const contentEl = document.getElementById('cart-content');
+
+    if (cart.length === 0) {
+        emptyEl.classList.remove('hidden');
+        contentEl.classList.add('hidden');
+        return;
+    }
+
+    emptyEl.classList.add('hidden');
+    contentEl.classList.remove('hidden');
+
+    listEl.innerHTML = cart.map((item, idx) => `
+        <div class="glass-card rounded-lg p-4 flex flex-col sm:flex-row gap-6 relative group transition-all duration-400 hover:shadow-md hover:shadow-primary/5 hover:border-secondary/30 cart-item-enter" data-product-id="${item.productId}">
+            <div class="w-full sm:w-40 h-56 sm:h-48 relative rounded overflow-hidden shrink-0">
+                <img alt="${item.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="${getItemImage(item, idx)}">
+            </div>
+            <div class="flex flex-col flex-grow justify-between py-2">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-secondary-fixed/20 text-primary font-label-sm text-label-sm mb-2">${item.category || 'Saree'}</span>
+                        <h3 class="font-subheading-lg text-subheading-lg text-primary">${item.name}</h3>
+                        <p class="font-body-md text-on-surface-variant mt-1">Color: ${item.color || 'Default'}${item.origin ? ' | Origin: ' + item.origin : ''}</p>
+                    </div>
+                    <button aria-label="Remove item" class="text-outline hover:text-error transition-colors duration-300 p-2" onclick="handleDelete('${item.productId}')">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+                <div class="flex justify-between items-end mt-6 sm:mt-0">
+                    <div class="flex items-center border-b border-secondary/30 pb-1">
+                        <button class="text-primary hover:text-secondary p-1 transition-colors" onclick="handleQuantity('${item.productId}', -1)"><span class="material-symbols-outlined text-[20px]">remove</span></button>
+                        <span class="font-body-md text-primary px-4">${item.quantity}</span>
+                        <button class="text-primary hover:text-secondary p-1 transition-colors" onclick="handleQuantity('${item.productId}', 1)"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                    </div>
+                    <div class="font-subheading-lg text-subheading-lg text-primary">${formatCurrency(item.price * item.quantity)}</div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    updateSummary();
+}
+
+function updateSummary() {
+    const cart = getLocalCart();
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const tax = Math.round(subtotal * 0.05);
+    const total = subtotal + tax;
+
+    document.getElementById('summary-subtotal').textContent = formatCurrency(subtotal);
+    document.getElementById('summary-tax').textContent = formatCurrency(tax);
+    document.getElementById('summary-total').textContent = formatCurrency(total);
+}
+
+function handleQuantity(productId, delta) {
+    const cart = getLocalCart();
+    const item = cart.find(i => i.productId === productId);
+    if (item) {
+        const newQty = item.quantity + delta;
+        if (newQty < 1) return;
+        updateCartQuantity(productId, newQty);
+        renderCart();
+    }
+}
+
+function handleDelete(productId) {
+    const el = document.querySelector(`[data-product-id="${productId}"]`);
+    if (el) {
+        el.classList.add('cart-item-exit');
+        setTimeout(() => {
+            removeFromLocalCart(productId);
+            renderCart();
+        }, 300);
+    } else {
+        removeFromLocalCart(productId);
+        renderCart();
+    }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    renderCart();
+    updateCartBadge();
+});
+</script>
+</body></html>
+
+

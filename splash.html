@@ -1,0 +1,293 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Satika - Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=EB+Garamond:ital,wght@0,500;1,500&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#32302c",
+                      "on-surface": "#1d1b18",
+                      "surface-tint": "#9b414a",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#5a0f1c",
+                      "on-primary-fixed": "#40000d",
+                      "outline": "#887272",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#484015",
+                      "on-surface-variant": "#554243",
+                      "secondary-fixed": "#ffe088",
+                      "on-tertiary-fixed": "#211b00",
+                      "on-primary-fixed-variant": "#7d2a34",
+                      "surface": "#fef8f2",
+                      "secondary-container": "#fed65b",
+                      "tertiary-fixed-dim": "#d4c78f",
+                      "outline-variant": "#dbc0c1",
+                      "primary-fixed": "#ffdadb",
+                      "on-tertiary-fixed-variant": "#4f471b",
+                      "inverse-primary": "#ffb2b6",
+                      "surface-container-low": "#f8f3ed",
+                      "on-background": "#1d1b18",
+                      "background": "#fef8f2",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#de757d",
+                      "secondary": "#735c00",
+                      "surface-variant": "#e7e2dc",
+                      "on-error": "#ffffff",
+                      "surface-bright": "#fef8f2",
+                      "primary-fixed-dim": "#ffb2b6",
+                      "surface-container-high": "#ede7e1",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#574500",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e7e2dc",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#dfd9d3",
+                      "tertiary-container": "#b8ac76",
+                      "tertiary-fixed": "#f1e3a9",
+                      "surface-container": "#f3ede7",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-secondary-fixed": "#241a00",
+                      "inverse-on-surface": "#f6f0ea",
+                      "tertiary": "#685e31",
+                      "on-secondary-container": "#745c00",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#3a000b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "section-gap": "120px",
+                      "unit": "8px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-sm": [
+                              "Be Vietnam Pro"
+                      ],
+                      "subheading-lg": [
+                              "EB Garamond"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "subheading-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .bg-silk-texture {
+            background-color: #5a0f1c; /* primary-container */
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(125, 42, 52, 0.4) 0%, transparent 60%),
+                linear-gradient(135deg, rgba(58, 0, 11, 0.8) 0%, rgba(90, 15, 28, 0.9) 50%, rgba(58, 0, 11, 0.8) 100%);
+        }
+
+        .gold-shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 224, 136, 0.4) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .particle {
+            position: absolute;
+            background: #ffe088; /* secondary-fixed */
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(255, 224, 136, 0.8);
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            80% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .fade-in-element {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1s; }
+        .delay-3 { animation-delay: 1.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-primary-container text-on-primary font-body-md overflow-hidden min-h-screen">
+<!-- Splash Screen Container -->
+<div class="relative min-h-screen w-full flex flex-col items-center justify-center bg-silk-texture overflow-hidden px-margin-mobile md:px-margin-desktop">
+<!-- Particle Container -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none" id="particles-container"><div class="particle" style="width: 2.88879px; height: 2.88879px; left: 84.9137%; animation: 6.70944s ease-in-out 2.37268s infinite normal none running float-up;"></div><div class="particle" style="width: 3.49556px; height: 3.49556px; left: 57.9369%; animation: 6.30721s ease-in-out 4.05522s infinite normal none running float-up;"></div><div class="particle" style="width: 3.8337px; height: 3.8337px; left: 5.8298%; animation: 6.23267s ease-in-out 3.65137s infinite normal none running float-up;"></div><div class="particle" style="width: 2.85305px; height: 2.85305px; left: 94.5071%; animation: 7.66061s ease-in-out 2.11222s infinite normal none running float-up;"></div><div class="particle" style="width: 3.98559px; height: 3.98559px; left: 58.8629%; animation: 9.99406s ease-in-out 3.52372s infinite normal none running float-up;"></div><div class="particle" style="width: 5.64761px; height: 5.64761px; left: 42.7966%; animation: 6.8631s ease-in-out 4.58703s infinite normal none running float-up;"></div><div class="particle" style="width: 2.28872px; height: 2.28872px; left: 21.1864%; animation: 5.53018s ease-in-out 0.364957s infinite normal none running float-up;"></div><div class="particle" style="width: 2.07904px; height: 2.07904px; left: 60.4579%; animation: 9.98104s ease-in-out 4.71641s infinite normal none running float-up;"></div><div class="particle" style="width: 4.02472px; height: 4.02472px; left: 43.6573%; animation: 7.30583s ease-in-out 0.21881s infinite normal none running float-up;"></div><div class="particle" style="width: 2.85884px; height: 2.85884px; left: 38.5387%; animation: 8.88731s ease-in-out 3.95523s infinite normal none running float-up;"></div><div class="particle" style="width: 3.79641px; height: 3.79641px; left: 50.0854%; animation: 7.43364s ease-in-out 0.212265s infinite normal none running float-up;"></div><div class="particle" style="width: 3.54169px; height: 3.54169px; left: 96.0817%; animation: 5.50078s ease-in-out 2.68276s infinite normal none running float-up;"></div><div class="particle" style="width: 3.90777px; height: 3.90777px; left: 31.5213%; animation: 5.75883s ease-in-out 3.41115s infinite normal none running float-up;"></div><div class="particle" style="width: 2.32504px; height: 2.32504px; left: 24.1987%; animation: 6.50483s ease-in-out 1.79405s infinite normal none running float-up;"></div><div class="particle" style="width: 3.56384px; height: 3.56384px; left: 80.6913%; animation: 8.51693s ease-in-out 2.55478s infinite normal none running float-up;"></div><div class="particle" style="width: 5.60537px; height: 5.60537px; left: 58.0719%; animation: 9.79099s ease-in-out 1.88599s infinite normal none running float-up;"></div><div class="particle" style="width: 2.83459px; height: 2.83459px; left: 47.7748%; animation: 8.4552s ease-in-out 1.89314s infinite normal none running float-up;"></div><div class="particle" style="width: 3.07311px; height: 3.07311px; left: 26.4415%; animation: 5.36072s ease-in-out 1.81385s infinite normal none running float-up;"></div><div class="particle" style="width: 3.60492px; height: 3.60492px; left: 41.6901%; animation: 9.07135s ease-in-out 4.05372s infinite normal none running float-up;"></div><div class="particle" style="width: 5.01746px; height: 5.01746px; left: 88.3596%; animation: 7.88261s ease-in-out 3.52008s infinite normal none running float-up;"></div><div class="particle" style="width: 3.5298px; height: 3.5298px; left: 67.8532%; animation: 7.3877s ease-in-out 2.66142s infinite normal none running float-up;"></div><div class="particle" style="width: 4.18582px; height: 4.18582px; left: 56.9637%; animation: 9.25706s ease-in-out 1.92054s infinite normal none running float-up;"></div><div class="particle" style="width: 3.25309px; height: 3.25309px; left: 50.2807%; animation: 8.00318s ease-in-out 1.9972s infinite normal none running float-up;"></div><div class="particle" style="width: 3.59763px; height: 3.59763px; left: 20.9115%; animation: 9.38529s ease-in-out 2.49254s infinite normal none running float-up;"></div><div class="particle" style="width: 2.91111px; height: 2.91111px; left: 26.5913%; animation: 8.29164s ease-in-out 2.22291s infinite normal none running float-up;"></div><div class="particle" style="width: 5.4998px; height: 5.4998px; left: 25.6653%; animation: 8.79957s ease-in-out 1.95753s infinite normal none running float-up;"></div><div class="particle" style="width: 3.32458px; height: 3.32458px; left: 25.8191%; animation: 6.89839s ease-in-out 1.5454s infinite normal none running float-up;"></div><div class="particle" style="width: 4.20205px; height: 4.20205px; left: 37.6411%; animation: 7.39045s ease-in-out 0.462934s infinite normal none running float-up;"></div><div class="particle" style="width: 2.39709px; height: 2.39709px; left: 71.5377%; animation: 9.04318s ease-in-out 4.91452s infinite normal none running float-up;"></div><div class="particle" style="width: 4.65812px; height: 4.65812px; left: 22.6272%; animation: 8.41288s ease-in-out 3.56625s infinite normal none running float-up;"></div><div class="particle" style="width: 3.02898px; height: 3.02898px; left: 54.6004%; animation: 8.7679s ease-in-out 1.5032s infinite normal none running float-up;"></div><div class="particle" style="width: 5.7207px; height: 5.7207px; left: 53.1742%; animation: 8.63597s ease-in-out 4.8261s infinite normal none running float-up;"></div><div class="particle" style="width: 4.01892px; height: 4.01892px; left: 2.86086%; animation: 5.82018s ease-in-out 1.27423s infinite normal none running float-up;"></div><div class="particle" style="width: 5.99652px; height: 5.99652px; left: 49.4487%; animation: 5.64627s ease-in-out 2.77832s infinite normal none running float-up;"></div><div class="particle" style="width: 2.16821px; height: 2.16821px; left: 73.0286%; animation: 6.1926s ease-in-out 1.68381s infinite normal none running float-up;"></div><div class="particle" style="width: 5.31866px; height: 5.31866px; left: 80.8744%; animation: 5.98078s ease-in-out 2.95329s infinite normal none running float-up;"></div><div class="particle" style="width: 3.73872px; height: 3.73872px; left: 50.6791%; animation: 6.2322s ease-in-out 0.574416s infinite normal none running float-up;"></div><div class="particle" style="width: 5.13534px; height: 5.13534px; left: 59.9358%; animation: 6.83255s ease-in-out 2.06592s infinite normal none running float-up;"></div><div class="particle" style="width: 4.57063px; height: 4.57063px; left: 73.2107%; animation: 6.69245s ease-in-out 2.64206s infinite normal none running float-up;"></div><div class="particle" style="width: 2.0229px; height: 2.0229px; left: 37.0567%; animation: 8.74571s ease-in-out 4.23701s infinite normal none running float-up;"></div><div class="particle" style="width: 5.73605px; height: 5.73605px; left: 58.4207%; animation: 7.66948s ease-in-out 1.66771s infinite normal none running float-up;"></div><div class="particle" style="width: 2.77531px; height: 2.77531px; left: 48.1803%; animation: 9.01566s ease-in-out 3.13182s infinite normal none running float-up;"></div><div class="particle" style="width: 5.22743px; height: 5.22743px; left: 87.9276%; animation: 6.46912s ease-in-out 3.70735s infinite normal none running float-up;"></div><div class="particle" style="width: 4.17683px; height: 4.17683px; left: 14.0231%; animation: 9.5227s ease-in-out 2.4464s infinite normal none running float-up;"></div><div class="particle" style="width: 4.60055px; height: 4.60055px; left: 12.6005%; animation: 9.26945s ease-in-out 4.3666s infinite normal none running float-up;"></div><div class="particle" style="width: 5.74718px; height: 5.74718px; left: 70.3293%; animation: 5.02066s ease-in-out 0.227881s infinite normal none running float-up;"></div><div class="particle" style="width: 2.09289px; height: 2.09289px; left: 8.49012%; animation: 9.18767s ease-in-out 1.51214s infinite normal none running float-up;"></div><div class="particle" style="width: 3.722px; height: 3.722px; left: 38.4326%; animation: 7.85685s ease-in-out 4.08708s infinite normal none running float-up;"></div><div class="particle" style="width: 2.64814px; height: 2.64814px; left: 25.6725%; animation: 6.86426s ease-in-out 3.76298s infinite normal none running float-up;"></div><div class="particle" style="width: 3.1302px; height: 3.1302px; left: 65.9029%; animation: 5.64043s ease-in-out 3.93198s infinite normal none running float-up;"></div><div class="particle" style="width: 3.79092px; height: 3.79092px; left: 88.7823%; animation: 7.52236s ease-in-out 1.21617s infinite normal none running float-up;"></div><div class="particle" style="width: 4.29579px; height: 4.29579px; left: 58.0433%; animation: 8.24221s ease-in-out 3.39192s infinite normal none running float-up;"></div><div class="particle" style="width: 3.00569px; height: 3.00569px; left: 0.406843%; animation: 7.23875s ease-in-out 1.82999s infinite normal none running float-up;"></div><div class="particle" style="width: 4.76315px; height: 4.76315px; left: 54.4332%; animation: 5.41676s ease-in-out 1.78405s infinite normal none running float-up;"></div><div class="particle" style="width: 4.22829px; height: 4.22829px; left: 41.9698%; animation: 5.26087s ease-in-out 2.07791s infinite normal none running float-up;"></div><div class="particle" style="width: 4.50174px; height: 4.50174px; left: 38.4992%; animation: 8.55993s ease-in-out 2.05104s infinite normal none running float-up;"></div><div class="particle" style="width: 4.54317px; height: 4.54317px; left: 83.3332%; animation: 7.83113s ease-in-out 3.86088s infinite normal none running float-up;"></div><div class="particle" style="width: 3.33991px; height: 3.33991px; left: 92.346%; animation: 9.74017s ease-in-out 0.587546s infinite normal none running float-up;"></div><div class="particle" style="width: 5.09548px; height: 5.09548px; left: 41.1631%; animation: 6.44362s ease-in-out 4.21797s infinite normal none running float-up;"></div><div class="particle" style="width: 2.05112px; height: 2.05112px; left: 64.4871%; animation: 8.01055s ease-in-out 4.73347s infinite normal none running float-up;"></div></div>
+<!-- Main Content -->
+<div class="relative z-10 flex flex-col items-center justify-center text-center max-w-container-max mx-auto w-full">
+<!-- Monogram Logo -->
+<div class="fade-in-element delay-1 mb-8"><img alt="Satika Logo" class="w-auto object-contain mx-auto h-48 md:h-64" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdL1hBgCz_GbXr38A6NqidoAqpRTL2k6lMmdBBwttjfvXyYYtYP30T_hL0SB4kUkuViq0U34phTMT6kI898aU2kPwXnLgtqand0vo7VXAiVr9JUrXfwTixQZYXvBw1AF2O_6O6lplaoXJyAKgtwaFM6ijkxb0U8v5mUqbzve-CIvveLuDBxDgDNDPY_PgwTTN3b2MZ2CKV5EVodFxUYgg4R_JHnkoRY1rGJrSU-NrdbnktOmEpGMCTqkYDByavUamea4tDRlJfpgo"></div>
+<!-- Brand Name -->
+<h1 class="fade-in-element delay-2 font-display-lg text-display-lg text-secondary-fixed mb-4 tracking-wider"><br></h1>
+<!-- Tagline -->
+<p class="fade-in-element delay-3 font-subheading-lg text-subheading-lg text-tertiary-fixed-dim italic font-light tracking-wide max-w-md">
+                Elegance Woven Into Every Thread
+            </p>
+<!-- Loading Bar Container -->
+<div class="fade-in-element delay-3 mt-16 w-64 h-[2px] bg-primary-fixed-variant/30 rounded-full overflow-hidden relative">
+<!-- Loading Progress -->
+<div class="absolute top-0 left-0 h-full w-full bg-secondary-fixed gold-shimmer rounded-full transform origin-left transition-transform duration-1000 ease-in-out" id="loading-bar" style="transform: scaleX(1);"></div>
+</div>
+</div>
+<!-- Subtle Ambient Overlay for Depth -->
+<div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-primary/50 to-transparent"></div>
+</div>
+<script>
+        // Particle Generation
+        const container = document.getElementById('particles-container');
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
+        }
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random properties
+            const size = Math.random() * 4 + 2; // 2px to 6px
+            const left = Math.random() * 100; // 0% to 100%
+            const duration = Math.random() * 5 + 5; // 5s to 10s
+            const delay = Math.random() * 5; // 0s to 5s
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}%`;
+            particle.style.animation = `float-up ${duration}s ease-in-out ${delay}s infinite`;
+
+            container.appendChild(particle);
+        }
+
+        // Loading Bar Animation Simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingBar = document.getElementById('loading-bar');
+            let progress = 0;
+            
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    // Optional: Trigger next screen transition here
+                    setTimeout(() => { window.location.href = 'login.html'; }, 500);
+                }
+                loadingBar.style.transform = `scaleX(${progress / 100})`;
+            }, 300);
+        });
+    </script>
+
+
+</body></html>
+
+

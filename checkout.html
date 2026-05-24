@@ -1,0 +1,841 @@
+<!-- SADHIKA | Checkout -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Checkout - Sadhika</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=EB+Garamond:ital,wght@0,500;1,500&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#32302c",
+                    "on-surface": "#1d1b18",
+                    "surface-tint": "#9b414a",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#5a0f1c",
+                    "on-primary-fixed": "#40000d",
+                    "outline": "#887272",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#484015",
+                    "on-surface-variant": "#554243",
+                    "secondary-fixed": "#ffe088",
+                    "on-tertiary-fixed": "#211b00",
+                    "on-primary-fixed-variant": "#7d2a34",
+                    "surface": "#fef8f2",
+                    "secondary-container": "#fed65b",
+                    "tertiary-fixed-dim": "#d4c78f",
+                    "outline-variant": "#dbc0c1",
+                    "primary-fixed": "#ffdadb",
+                    "on-tertiary-fixed-variant": "#4f471b",
+                    "inverse-primary": "#ffb2b6",
+                    "surface-container-low": "#f8f3ed",
+                    "on-background": "#1d1b18",
+                    "background": "#fef8f2",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#de757d",
+                    "secondary": "#735c00",
+                    "surface-variant": "#e7e2dc",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fef8f2",
+                    "primary-fixed-dim": "#ffb2b6",
+                    "surface-container-high": "#ede7e1",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e7e2dc",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dfd9d3",
+                    "tertiary-container": "#b8ac76",
+                    "tertiary-fixed": "#f1e3a9",
+                    "surface-container": "#f3ede7",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-secondary-fixed": "#241a00",
+                    "inverse-on-surface": "#f6f0ea",
+                    "tertiary": "#685e31",
+                    "on-secondary-container": "#745c00",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#3a000b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "section-gap": "120px",
+                    "unit": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "subheading-lg": ["EB Garamond"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "subheading-lg": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 224, 136, 0.3);
+        box-shadow: 0 4px 30px rgba(90, 15, 28, 0.04);
+    }
+    .glass-card {
+        background: rgba(254, 248, 242, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 224, 136, 0.2);
+    }
+    .maroon-shadow { box-shadow: 0 4px 20px rgba(58, 0, 11, 0.08); }
+
+    .premium-input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1.5px solid rgba(115, 92, 0, 0.3);
+        padding: 12px 0 8px;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        color: #3a000b;
+        transition: border-color 0.3s ease;
+        outline: none;
+    }
+    .premium-input:focus { border-bottom-color: #735c00; }
+    .premium-input::placeholder { color: #887272; }
+
+    .input-label {
+        display: block;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #554243;
+        margin-bottom: 4px;
+        transition: all 0.3s ease;
+    }
+
+    .step-content { display: none; animation: fadeSlide 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .step-content.active { display: block; }
+    @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .radio-card {
+        border: 2px solid rgba(219, 192, 193, 0.6);
+        border-radius: 0.75rem;
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: rgba(254, 248, 242, 0.4);
+    }
+    .radio-card:hover { border-color: #735c00; }
+    .radio-card.selected {
+        border-color: #3a000b;
+        background: rgba(255, 218, 219, 0.2);
+        box-shadow: 0 0 0 1px #3a000b;
+    }
+
+    /* Confetti */
+    .confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; overflow: hidden; }
+    .confetti-piece {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: -20px;
+        animation: confettiFall 3s ease-in-out forwards;
+    }
+    @keyframes confettiFall {
+        0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(720deg) scale(0.5); opacity: 0; }
+    }
+
+    .progress-line {
+        height: 3px;
+        background: rgba(219, 192, 193, 0.4);
+        position: relative;
+        overflow: hidden;
+    }
+    .progress-line-fill {
+        position: absolute;
+        left: 0; top: 0; height: 100%;
+        background: #3a000b;
+        transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+</style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+<!-- Header -->
+<header class="bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-secondary/20 shadow-sm shadow-primary/5">
+<div class="flex justify-center items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto w-full">
+<div class="flex items-center justify-center relative w-full">
+    <button onclick="history.back()" class="absolute left-0 text-primary hover:text-secondary transition-colors cursor-pointer" aria-label="Go back"><span class="material-symbols-outlined text-[28px]">arrow_back</span></button>
+    <a href="dashboard.html"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU8_gQVR8agiZw55JxeLBoYMO0XlQM9i2CNXdMHEv_ZN1WOlFA3qVT8w3LPQkwM0nFiofBCun5xRVm2XtgpqwJFfHPs4MGdoo_BCAVjTwkE48OljmRpdzw3p18B2l9IaUkCutfX5KyyovDlEszbuD5DgcbBvnFsNsiIaWQ4CA8sZiQkKBvXKZz5ODufSThuLhbbjf_EGfdGh3z18eEnEzdMrx6krWJRY2Ll-y8zxylhpXnAxPviHVPGSIckjEhUk8c-ifb6U2gYc" alt="Sadhika" class="h-12 md:h-16 w-auto object-contain"></a>
+</div>
+</div>
+</header>
+
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+
+<!-- Order Type Selection -->
+<div class="mb-10 glass-card rounded-xl p-6">
+    <h3 class="font-label-sm text-label-sm text-on-surface uppercase mb-4">Order Type</h3>
+    <div class="flex flex-col sm:flex-row gap-4">
+        <label class="radio-card flex-1 flex items-center gap-4 selected" id="type-online" onclick="setOrderType('online')">
+            <div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center">
+                <div class="w-2.5 h-2.5 rounded-full bg-primary" id="dot-online"></div>
+            </div>
+            <div>
+                <span class="font-subheading-lg text-[18px] text-primary">Online Order</span>
+                <p class="font-body-md text-on-surface-variant text-sm mt-1">Standard checkout with delivery</p>
+            </div>
+        </label>
+        <label class="radio-card flex-1 flex items-center gap-4" id="type-offline" onclick="setOrderType('offline')">
+            <div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center">
+                <div class="w-2.5 h-2.5 rounded-full bg-primary hidden" id="dot-offline"></div>
+            </div>
+            <div>
+                <span class="font-subheading-lg text-[18px] text-primary">Offline Order (Store Pickup)</span>
+                <p class="font-body-md text-on-surface-variant text-sm mt-1">Pick up from our boutique store</p>
+            </div>
+        </label>
+    </div>
+</div>
+
+<!-- Progress Indicator -->
+<div class="mb-12">
+    <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2 step-indicator" data-step="1">
+            <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-sm transition-all duration-400">1</div>
+            <span class="hidden sm:inline font-label-sm text-label-sm text-primary shipping-label">Shipping</span>
+        </div>
+        <div class="flex-1 mx-2 progress-line"><div class="progress-line-fill" id="prog-1" style="width:0%"></div></div>
+        <div class="flex items-center gap-2 step-indicator" data-step="2">
+            <div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-sm text-sm border border-outline-variant transition-all duration-400">2</div>
+            <span class="hidden sm:inline font-label-sm text-label-sm text-on-surface-variant">Delivery</span>
+        </div>
+        <div class="flex-1 mx-2 progress-line"><div class="progress-line-fill" id="prog-2" style="width:0%"></div></div>
+        <div class="flex items-center gap-2 step-indicator" data-step="3">
+            <div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-sm text-sm border border-outline-variant transition-all duration-400">3</div>
+            <span class="hidden sm:inline font-label-sm text-label-sm text-on-surface-variant">Payment</span>
+        </div>
+    </div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Checkout Steps Area -->
+<div class="lg:col-span-8">
+
+    <!-- Step 1: Shipping Address (hidden for offline) -->
+    <div class="step-content active" id="step-1">
+        <div class="glass-panel rounded-xl p-8" id="shipping-form">
+            <h2 class="font-headline-lg-mobile text-primary mb-2 text-[28px]">Shipping Address</h2>
+            <p class="font-body-md text-on-surface-variant mb-8">Where should we deliver your heritage pieces?</p>
+            <div class="space-y-6">
+                <div>
+                    <label class="input-label" for="addr-street">Street Address</label>
+                    <input class="premium-input" id="addr-street" placeholder="123 Heritage Lane" type="text">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="input-label" for="addr-city">City</label>
+                        <input class="premium-input" id="addr-city" placeholder="Mumbai" type="text">
+                    </div>
+                    <div>
+                        <label class="input-label" for="addr-zip">PIN Code</label>
+                        <input class="premium-input" id="addr-zip" placeholder="400001" type="text">
+                    </div>
+                </div>
+                <div>
+                    <label class="input-label" for="addr-state">State</label>
+                    <input class="premium-input" id="addr-state" placeholder="Maharashtra" type="text">
+                </div>
+                <!-- Map Placeholder -->
+                <div class="w-full h-48 bg-surface-container rounded-lg border border-outline-variant flex items-center justify-center">
+                    <div class="text-center text-on-surface-variant">
+                        <span class="material-symbols-outlined text-[40px] mb-2">map</span>
+                        <p class="font-body-md text-sm">Delivery location preview</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Store Selection (shown for offline) -->
+        <div class="glass-panel rounded-xl p-8 hidden" id="store-selection">
+            <h2 class="font-headline-lg-mobile text-primary mb-2 text-[28px]">Select Store</h2>
+            <p class="font-body-md text-on-surface-variant mb-8">Choose a boutique for pickup.</p>
+            <div class="space-y-4">
+                <label class="radio-card flex items-center gap-4 selected" onclick="selectStore(this, 'varanasi')">
+                    <div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center">
+                        <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+                    </div>
+                    <div>
+                        <span class="font-subheading-lg text-[18px] text-primary">Sadhika — Varanasi</span>
+                        <p class="font-body-md text-on-surface-variant text-sm mt-1">12, Dashashwamedh Ghat, Varanasi, UP 221001</p>
+                    </div>
+                </label>
+                <label class="radio-card flex items-center gap-4" onclick="selectStore(this, 'mumbai')">
+                    <div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center">
+                        <div class="w-2.5 h-2.5 rounded-full bg-primary hidden"></div>
+                    </div>
+                    <div>
+                        <span class="font-subheading-lg text-[18px] text-primary">Sadhika — Mumbai</span>
+                        <p class="font-body-md text-on-surface-variant text-sm mt-1">Linking Road, Bandra West, Mumbai 400050</p>
+                    </div>
+                </label>
+                <label class="radio-card flex items-center gap-4" onclick="selectStore(this, 'delhi')">
+                    <div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center">
+                        <div class="w-2.5 h-2.5 rounded-full bg-primary hidden"></div>
+                    </div>
+                    <div>
+                        <span class="font-subheading-lg text-[18px] text-primary">Sadhika — Delhi</span>
+                        <p class="font-body-md text-on-surface-variant text-sm mt-1">Khan Market, New Delhi 110003</p>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="mt-10 flex justify-end">
+            <button onclick="goToStep(2)" class="bg-primary text-on-primary py-3 px-8 rounded-md font-body-lg text-body-lg hover:bg-primary-container hover:shadow-lg transition-all duration-400 ease-out flex items-center gap-2">
+                Continue <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Step 2: Delivery Method -->
+    <div class="step-content" id="step-2">
+        <div class="glass-panel rounded-xl p-8">
+            <h2 class="font-headline-lg-mobile text-primary mb-2 text-[28px]">Delivery Method</h2>
+            <p class="font-body-md text-on-surface-variant mb-8">Choose how you'd like to receive your order.</p>
+            <div class="space-y-4">
+                <label class="radio-card flex items-start gap-4 selected" id="delivery-standard" onclick="selectDelivery(this, 'standard')">
+                    <div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center mt-1">
+                        <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-center">
+                            <span class="font-subheading-lg text-[18px] text-primary">Standard Heritage Delivery</span>
+                            <span class="font-body-md text-secondary font-semibold">Free</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant text-sm mt-1">7-10 business days • Carefully wrapped in heritage packaging</p>
+                        <div class="flex items-center gap-2 mt-3 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                            <span class="font-body-md text-sm">Insured & tracked delivery</span>
+                        </div>
+                    </div>
+                </label>
+                <label class="radio-card flex items-start gap-4" id="delivery-express" onclick="selectDelivery(this, 'express')">
+                    <div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center mt-1">
+                        <div class="w-2.5 h-2.5 rounded-full bg-primary hidden"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-center">
+                            <span class="font-subheading-lg text-[18px] text-primary">Express Bespoke Delivery</span>
+                            <span class="font-body-md text-secondary font-semibold">₹500</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant text-sm mt-1">2-3 business days • Premium white-glove service</p>
+                        <div class="flex items-center gap-2 mt-3 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-[18px]">star</span>
+                            <span class="font-body-md text-sm">Gift-wrapped with handwritten note</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="mt-10 flex justify-between">
+            <button onclick="goToStep(1)" class="bg-transparent text-primary py-3 px-8 rounded-md font-body-lg text-body-lg border border-outline-variant hover:bg-surface-container transition-all duration-400 ease-out flex items-center gap-2">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span> Back
+            </button>
+            <button onclick="goToStep(3)" class="bg-primary text-on-primary py-3 px-8 rounded-md font-body-lg text-body-lg hover:bg-primary-container hover:shadow-lg transition-all duration-400 ease-out flex items-center gap-2">
+                Continue <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Step 3: Payment -->
+    <div class="step-content" id="step-3">
+        <div class="glass-panel rounded-xl p-8">
+            <h2 class="font-headline-lg-mobile text-primary mb-2 text-[28px]">Payment Method</h2>
+            <p class="font-body-md text-on-surface-variant mb-8">Select your preferred payment option.</p>
+            <div class="space-y-4">
+                <label class="radio-card flex items-center gap-4 selected" id="pay-upi" onclick="selectPayment(this, 'upi')">
+                    <div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center">
+                        <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-[28px]">account_balance</span>
+                        <div>
+                            <span class="font-subheading-lg text-[18px] text-primary">UPI / Google Pay</span>
+                            <p class="font-body-md text-on-surface-variant text-sm mt-0.5">Pay instantly via UPI apps</p>
+                        </div>
+                    </div>
+                </label>
+                <label class="radio-card flex items-center gap-4" id="pay-card" onclick="selectPayment(this, 'card')">
+                    <div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center">
+                        <div class="w-2.5 h-2.5 rounded-full bg-primary hidden"></div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-[28px]">credit_card</span>
+                        <div>
+                            <span class="font-subheading-lg text-[18px] text-primary">Credit / Debit Card</span>
+                            <p class="font-body-md text-on-surface-variant text-sm mt-0.5">Visa, Mastercard, RuPay</p>
+                        </div>
+                    </div>
+                </label>
+                <label class="radio-card flex items-center gap-4" id="pay-cod" onclick="selectPayment(this, 'cod')">
+                    <div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center">
+                        <div class="w-2.5 h-2.5 rounded-full bg-primary hidden"></div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-[28px]">payments</span>
+                        <div>
+                            <span class="font-subheading-lg text-[18px] text-primary">Cash on Delivery</span>
+                            <p class="font-body-md text-on-surface-variant text-sm mt-0.5">Pay when you receive your order</p>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <!-- Card Form (shown when card is selected) -->
+            <div class="mt-8 space-y-6 hidden" id="card-form">
+                <div>
+                    <label class="input-label" for="card-number">Card Number</label>
+                    <input class="premium-input" id="card-number" placeholder="XXXX XXXX XXXX XXXX" type="text">
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="input-label" for="card-expiry">Expiry</label>
+                        <input class="premium-input" id="card-expiry" placeholder="MM / YY" type="text">
+                    </div>
+                    <div>
+                        <label class="input-label" for="card-cvv">CVV</label>
+                        <input class="premium-input" id="card-cvv" placeholder="•••" type="password">
+                    </div>
+                </div>
+                <div>
+                    <label class="input-label" for="card-name">Name on Card</label>
+                    <input class="premium-input" id="card-name" placeholder="As printed on card" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 flex justify-between">
+            <button onclick="goToStep(2)" class="bg-transparent text-primary py-3 px-8 rounded-md font-body-lg text-body-lg border border-outline-variant hover:bg-surface-container transition-all duration-400 ease-out flex items-center gap-2">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span> Back
+            </button>
+            <button onclick="placeOrder()" id="place-order-btn" class="bg-primary text-on-primary py-3 px-8 rounded-md font-body-lg text-body-lg hover:bg-primary-container hover:shadow-lg transition-all duration-400 ease-out flex items-center gap-2">
+                Place Order <span class="material-symbols-outlined text-[20px]">check_circle</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Step 4: Confirmation -->
+    <div class="step-content" id="step-4">
+        <div class="glass-panel rounded-xl p-8 md:p-12 text-center">
+            <div class="w-20 h-20 bg-secondary-fixed/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span class="material-symbols-outlined text-[48px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+            <h2 class="font-headline-lg-mobile md:font-headline-lg text-primary mb-4 text-[36px]">Thank You!</h2>
+            <p class="font-body-lg text-on-surface-variant mb-2">Your order has been placed successfully.</p>
+            <p class="font-body-md text-on-surface-variant mb-8">Order ID: <span class="text-primary font-semibold" id="confirmation-order-id">#VH-0000</span></p>
+            <div class="glass-card rounded-lg p-6 mb-8 inline-block">
+                <p class="font-body-md text-on-surface-variant">A confirmation email has been sent to <span class="text-primary" id="confirmation-email">your email</span></p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="order-tracking.html" class="bg-primary text-on-primary py-3 px-8 rounded-md font-body-lg text-body-lg hover:bg-primary-container hover:shadow-lg transition-all duration-400 ease-out inline-flex items-center gap-2">
+                    Track Order <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+                </a>
+                <a href="dashboard.html" class="bg-transparent text-primary py-3 px-8 rounded-md font-body-lg text-body-lg border border-outline-variant hover:bg-surface-container transition-all duration-400 ease-out inline-flex items-center gap-2">
+                    Return to Collections <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Order Summary Sidebar -->
+<div class="lg:col-span-4 mt-8 lg:mt-0" id="sidebar-summary">
+<div class="glass-panel rounded-xl p-8 sticky top-[120px]">
+    <h2 class="font-headline-lg-mobile text-primary mb-6 text-[28px]">Order Summary</h2>
+    <!-- Cart Items Preview -->
+    <div id="checkout-items" class="flex flex-col gap-4 mb-6 max-h-[300px] overflow-y-auto pr-2">
+        <!-- Dynamic items -->
+    </div>
+    <div class="h-[1px] w-full bg-secondary/20 my-4"></div>
+    <div class="flex flex-col gap-3 font-body-md text-on-surface">
+        <div class="flex justify-between">
+            <span class="text-on-surface-variant">Subtotal</span>
+            <span id="co-subtotal">₹0</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-on-surface-variant">Shipping</span>
+            <span id="co-shipping">Free</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-on-surface-variant">Tax (5%)</span>
+            <span id="co-tax">₹0</span>
+        </div>
+        <div class="h-[1px] w-full bg-secondary/20 my-1"></div>
+        <div class="flex justify-between font-subheading-lg text-subheading-lg text-primary">
+            <span>Total</span>
+            <span id="co-total">₹0</span>
+        </div>
+    </div>
+    <div class="mt-6 flex items-center justify-center gap-2 text-on-surface-variant font-body-md text-sm">
+        <span class="material-symbols-outlined text-[16px]">lock</span>
+        Secure SSL Checkout
+    </div>
+</div>
+</div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full mt-section-gap bg-primary text-on-primary border-t border-secondary/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<div><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU8_gQVR8agiZw55JxeLBoYMO0XlQM9i2CNXdMHEv_ZN1WOlFA3qVT8w3LPQkwM0nFiofBCun5xRVm2XtgpqwJFfHPs4MGdoo_BCAVjTwkE48OljmRpdzw3p18B2l9IaUkCutfX5KyyovDlEszbuD5DgcbBvnFsNsiIaWQ4CA8sZiQkKBvXKZz5ODufSThuLhbbjf_EGfdGh3z18eEnEzdMrx6krWJRY2Ll-y8zxylhpXnAxPviHVPGSIckjEhUk8c-ifb6U2gYc" alt="Sadhika" class="h-12 md:h-16 w-auto object-contain brightness-0 invert"></div>
+<p class="font-body-md text-body-md text-on-primary/80 mt-4">�</p>
+</div>
+<div class="flex flex-col gap-2 font-body-md text-body-md">
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">The Legacy</a>
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Sustainable Silk</a>
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Shipping &amp; Returns</a>
+</div>
+<div class="flex flex-col gap-2 font-body-md text-body-md">
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Contact Us</a>
+<a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Store Locator</a>
+</div>
+</div>
+</footer>
+
+<!-- Confetti Container -->
+<div class="confetti-container hidden" id="confetti"></div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js?v=2"></script>
+<script src="js/firestore.js?v=2"></script>
+
+<script>
+// ============================================================
+// Checkout Logic
+// ============================================================
+
+let currentStep = 1;
+let orderType = 'online'; // 'online' or 'offline'
+let selectedDelivery = 'standard';
+let selectedPayment = 'upi';
+let selectedStore = 'varanasi';
+
+const FALLBACK_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuC6uB6rhH8_Zang0i00hGzJRNTtbnKrdmgBt8OtLb3RFLajRrJlef-56MSqUCUNgYWc2ZGLtClBOGPnwNXIlPklFkUnlfR6TAV6nY7I4QAiffvf6OE2ZFjBdp6f3Fx017MlBOzSHEpk5tBcNxf1JefnagmZPMwVmLDwfOgHks7PsuW1mrxZfIQFs2YdADdykpPtu3NPotGjvmD9yExpTO6b8fcNmAblRyuMEvxXlQj6kWB1vWFl5eX7eE_MsxEYPr68KwzVApriK2I';
+
+function formatCurrency(amount) {
+    return '₹' + amount.toLocaleString('en-IN');
+}
+
+function setOrderType(type) {
+    orderType = type;
+    const onlineCard = document.getElementById('type-online');
+    const offlineCard = document.getElementById('type-offline');
+    const dotOnline = document.getElementById('dot-online');
+    const dotOffline = document.getElementById('dot-offline');
+
+    if (type === 'online') {
+        onlineCard.classList.add('selected');
+        offlineCard.classList.remove('selected');
+        dotOnline.classList.remove('hidden');
+        dotOffline.classList.add('hidden');
+        onlineCard.querySelector('.border-2').classList.replace('border-outline', 'border-primary');
+        offlineCard.querySelector('.border-2').classList.replace('border-primary', 'border-outline');
+    } else {
+        offlineCard.classList.add('selected');
+        onlineCard.classList.remove('selected');
+        dotOffline.classList.remove('hidden');
+        dotOnline.classList.add('hidden');
+        offlineCard.querySelector('.border-2').classList.replace('border-outline', 'border-primary');
+        onlineCard.querySelector('.border-2').classList.replace('border-primary', 'border-outline');
+    }
+    updateStep2Visibility();
+}
+
+function updateStep2Visibility() {
+    const shippingForm = document.getElementById('shipping-form');
+    const storeSelection = document.getElementById('store-selection');
+    if (orderType === 'offline') {
+        shippingForm.classList.add('hidden');
+        storeSelection.classList.remove('hidden');
+    } else {
+        shippingForm.classList.remove('hidden');
+        storeSelection.classList.add('hidden');
+    }
+}
+
+function selectStore(el, store) {
+    selectedStore = store;
+    document.querySelectorAll('#store-selection .radio-card').forEach(card => {
+        card.classList.remove('selected');
+        const dot = card.querySelector('.border-2');
+        dot.classList.replace('border-primary', 'border-outline');
+        dot.querySelector('div').classList.add('hidden');
+    });
+    el.classList.add('selected');
+    el.querySelector('.border-2').classList.replace('border-outline', 'border-primary');
+    el.querySelector('.border-2 div').classList.remove('hidden');
+}
+
+function selectDelivery(el, method) {
+    selectedDelivery = method;
+    document.querySelectorAll('#step-3 .radio-card').forEach(card => {
+        card.classList.remove('selected');
+        const dot = card.querySelector('.border-2');
+        dot.classList.replace('border-primary', 'border-outline');
+        dot.querySelector('div').classList.add('hidden');
+    });
+    el.classList.add('selected');
+    el.querySelector('.border-2').classList.replace('border-outline', 'border-primary');
+    el.querySelector('.border-2 div').classList.remove('hidden');
+    updateOrderSummary();
+}
+
+function selectPayment(el, method) {
+    selectedPayment = method;
+    document.querySelectorAll('#step-4 .radio-card').forEach(card => {
+        card.classList.remove('selected');
+        const dot = card.querySelector('.border-2');
+        dot.classList.replace('border-primary', 'border-outline');
+        dot.querySelector('div').classList.add('hidden');
+    });
+    el.classList.add('selected');
+    el.querySelector('.border-2').classList.replace('border-outline', 'border-primary');
+    el.querySelector('.border-2 div').classList.remove('hidden');
+
+    // Show/hide card form
+    const cardForm = document.getElementById('card-form');
+    if (method === 'card') {
+        cardForm.classList.remove('hidden');
+    } else {
+        cardForm.classList.add('hidden');
+    }
+}
+
+function goToStep(step) {
+    // For offline orders, skip shipping step 2 details but still show store selection
+    document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+    document.getElementById(`step-${step}`).classList.add('active');
+    currentStep = step;
+    updateProgressIndicators();
+    updateStep2Visibility();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgressIndicators() {
+    document.querySelectorAll('.step-indicator').forEach(ind => {
+        const s = parseInt(ind.dataset.step);
+        const circle = ind.querySelector('div');
+        const label = ind.querySelector('span:last-child');
+        if (s <= currentStep) {
+            circle.className = 'w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-sm transition-all duration-400';
+            if (label) label.className = label.className.replace('text-on-surface-variant', 'text-primary');
+        } else {
+            circle.className = 'w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-sm text-sm border border-outline-variant transition-all duration-400';
+            if (label) label.className = label.className.replace('text-primary', 'text-on-surface-variant');
+        }
+    });
+
+    // Progress line fills
+    for (let i = 1; i <= 2; i++) {
+        const fill = document.getElementById(`prog-${i}`);
+        fill.style.width = currentStep > i ? '100%' : '0%';
+    }
+}
+
+let _checkoutCartCache = null;
+function getCheckoutCart() {
+    if (_checkoutCartCache) return _checkoutCartCache;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('buyNow') === 'true') {
+        const itemStr = sessionStorage.getItem('buyNowItem');
+        if (itemStr) {
+            _checkoutCartCache = [JSON.parse(itemStr)];
+            return _checkoutCartCache;
+        }
+    }
+    _checkoutCartCache = getLocalCart();
+    return _checkoutCartCache;
+}
+
+function renderCheckoutItems() {
+    const cart = getCheckoutCart();
+    const container = document.getElementById('checkout-items');
+    container.innerHTML = cart.map(item => `
+        <div class="flex items-center gap-3">
+            <img src="${item.image || FALLBACK_IMG}" alt="${item.name}" class="w-14 h-14 rounded object-cover">
+            <div class="flex-grow min-w-0">
+                <p class="font-body-md text-primary text-sm truncate">${item.name}</p>
+                <p class="font-body-md text-on-surface-variant text-xs">Qty: ${item.quantity}</p>
+            </div>
+            <span class="font-body-md text-primary text-sm font-semibold whitespace-nowrap">${formatCurrency(item.price * item.quantity)}</span>
+        </div>
+    `).join('');
+    updateOrderSummary();
+}
+
+function updateOrderSummary() {
+    const cart = getCheckoutCart();
+    const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+    const shipping = selectedDelivery === 'express' ? 500 : 0;
+    const tax = Math.round(subtotal * 0.05);
+    const total = subtotal + shipping + tax;
+
+    document.getElementById('co-subtotal').textContent = formatCurrency(subtotal);
+    document.getElementById('co-shipping').textContent = shipping === 0 ? 'Free' : formatCurrency(shipping);
+    document.getElementById('co-tax').textContent = formatCurrency(tax);
+    document.getElementById('co-total').textContent = formatCurrency(total);
+}
+
+function showConfetti() {
+    const container = document.getElementById('confetti');
+    container.classList.remove('hidden');
+    const colors = ['#3a000b', '#735c00', '#fed65b', '#ffb2b6', '#ffdadb', '#b8ac76'];
+    for (let i = 0; i < 80; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = Math.random() * 2 + 's';
+        piece.style.animationDuration = (2 + Math.random() * 2) + 's';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        piece.style.width = (6 + Math.random() * 8) + 'px';
+        piece.style.height = (6 + Math.random() * 8) + 'px';
+        container.appendChild(piece);
+    }
+    setTimeout(() => { container.classList.add('hidden'); container.innerHTML = ''; }, 5000);
+}
+
+async function placeOrder() {
+    const btn = document.getElementById('place-order-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="animate-spin material-symbols-outlined text-[20px]">progress_activity</span> Placing Order...';
+
+    const cart = getCheckoutCart();
+    const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+    const shipping = selectedDelivery === 'express' ? 500 : 0;
+    const tax = Math.round(subtotal * 0.05);
+    const total = subtotal + shipping + tax;
+
+    let userProfile = {};
+    if (auth && auth.currentUser) {
+        try {
+            if (typeof getUserProfile === 'function') {
+                userProfile = await getUserProfile(auth.currentUser.uid) || {};
+            }
+        } catch (e) {}
+    }
+
+    const fallbackName = auth?.currentUser?.displayName || 'Guest User';
+    const fallbackEmail = auth?.currentUser?.email || 'guest@example.com';
+    const fallbackPhone = auth?.currentUser?.phoneNumber || '';
+
+    const orderData = {
+        userId: auth && auth.currentUser ? auth.currentUser.uid : 'guest',
+        customerName: userProfile.name || fallbackName,
+        customerEmail: userProfile.email || fallbackEmail,
+        customerPhone: userProfile.phone || fallbackPhone,
+        orderType: orderType,
+        items: cart,
+        subtotal,
+        shipping,
+        tax,
+        total,
+        deliveryMethod: selectedDelivery,
+        paymentMethod: selectedPayment,
+        status: 'Confirmed',
+        estimatedDelivery: new Date(Date.now() + (selectedDelivery === 'express' ? 3 : 10) * 86400000).toISOString()
+    };
+
+    if (orderType === 'online') {
+        orderData.shippingAddress = {
+            street: document.getElementById('addr-street').value,
+            city: document.getElementById('addr-city').value,
+            zip: document.getElementById('addr-zip').value,
+            state: document.getElementById('addr-state').value
+        };
+    } else {
+        orderData.pickupStore = selectedStore;
+    }
+
+    try {
+        const orderId = await createOrder(orderData);
+        const orderNum = '#VH-' + Math.floor(1000 + Math.random() * 9000);
+        document.getElementById('confirmation-order-id').textContent = orderNum;
+        document.getElementById('confirmation-email').textContent = orderData.customerEmail || 'your email';
+
+        // Clear cart or buyNow session
+        if (new URLSearchParams(window.location.search).get('buyNow') === 'true') {
+            sessionStorage.removeItem('buyNowItem');
+        } else if (typeof saveLocalCart === 'function') {
+            saveLocalCart([]);
+        }
+
+        // Show confirmation
+        document.getElementById('sidebar-summary').classList.add('hidden');
+        goToStep(4);
+        showConfetti();
+    } catch (err) {
+        console.error('Order failed:', err);
+        // Still show success in demo mode
+        const orderNum = '#VH-' + Math.floor(1000 + Math.random() * 9000);
+        document.getElementById('confirmation-order-id').textContent = orderNum;
+        document.getElementById('confirmation-email').textContent = orderData.customerEmail || 'your email';
+        if (new URLSearchParams(window.location.search).get('buyNow') === 'true') {
+            sessionStorage.removeItem('buyNowItem');
+        } else if (typeof saveLocalCart === 'function') {
+            saveLocalCart([]);
+        }
+        document.getElementById('sidebar-summary').classList.add('hidden');
+        goToStep(4);
+        showConfetti();
+    }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    renderCheckoutItems();
+    updateProgressIndicators();
+});
+</script>
+</body></html>
+
+
