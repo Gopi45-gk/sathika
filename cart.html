@@ -349,12 +349,10 @@ function handleDelete(productId) {
     if (el) {
         el.classList.add('cart-item-exit');
         setTimeout(() => {
-            removeFromLocalCart(productId);
-            renderCart();
+            removeFromCart(productId).then(() => renderCart());
         }, 300);
     } else {
-        removeFromLocalCart(productId);
-        renderCart();
+        removeFromCart(productId).then(() => renderCart());
     }
 }
 

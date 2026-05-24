@@ -189,7 +189,25 @@ async function getCart() {
         const headers = await getAuthHeaders();
         const response = await fetch(`${API_BASE_URL}/cart`, { headers });
         if (response.ok) {
-            _cachedCart = await response.json();
+            const rawCart = await response.json();
+            // Client-side join to fetch product details
+            _cachedCart = await Promise.all(rawCart.map(async item => {
+                try {
+                    const prodRes = await fetch(`${API_BASE_URL}/products/${item.productId}`);
+                    if (prodRes.ok) {
+                        const product = await prodRes.json();
+                        return { 
+                            ...item, 
+                            name: product.name, 
+                            price: product.price, 
+                            originalPrice: product.originalPrice || product.price,
+                            image: product.images ? product.images[0] : product.imageUrl || product.image,
+                            category: product.category 
+                        };
+                    }
+                } catch(e) {}
+                return item;
+            }));
         }
     } catch (e) {
         // Fallback to local storage if not logged in
@@ -264,6 +282,39 @@ async function removeFromCart(cartIdOrProductId) {
     _cachedCart = cart;
     updateCartBadge();
     return cart;
+}
+
+async function updateCartQuantity(productId, quantity) {
+    const item = _cachedCart.find(i => i.productId === productId);
+    if (!item) return;
+
+    try {
+        const headers = await getAuthHeaders();
+        if (headers.Authorization && item.cartId) {
+            await fetch(`${API_BASE_URL}/cart/${item.cartId}`, {
+                method: 'PUT',
+                headers: {
+                    ...headers,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ quantity })
+            });
+            await getCart();
+            updateCartBadge();
+            return _cachedCart;
+        }
+    } catch(e) {}
+
+    // Fallback to local
+    let cart = JSON.parse(localStorage.getItem('vastra_cart') || '[]');
+    const localItem = cart.find(i => i.productId === productId);
+    if (localItem) {
+        localItem.quantity = quantity;
+        localStorage.setItem('vastra_cart', JSON.stringify(cart));
+        _cachedCart = cart;
+        updateCartBadge();
+    }
+    return _cachedCart;
 }
 
 function getCartTotal() {
