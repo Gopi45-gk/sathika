@@ -5,7 +5,7 @@
 
 const API_BASE_URL_AUTH = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
     ? 'http://localhost:5000/api' 
-    : 'https://your-backend-url.onrender.com/api'; // <-- Replace with your actual Render/Heroku URL
+    : 'https://sathika.onrender.com/api';
 
 async function syncUserWithBackend(user) {
     try {
