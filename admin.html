@@ -92,11 +92,19 @@
 </head>
 <body class="antialiased font-body-md flex h-screen overflow-hidden">
     
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden" onclick="toggleSidebar()"></div>
+
     <!-- Sidebar -->
-    <aside class="w-64 bg-surface-container-high border-r border-secondary/20 flex flex-col h-full shrink-0 hidden md:flex">
-        <div class="p-6 border-b border-secondary/20">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU8_gQVR8agiZw55JxeLBoYMO0XlQM9i2CNXdMHEv_ZN1WOlFA3qVT8w3LPQkwM0nFiofBCun5xRVm2XtgpqwJFfHPs4MGdoo_BCAVjTwkE48OljmRpdzw3p18B2l9IaUkCutfX5KyyovDlEszbuD5DgcbBvnFsNsiIaWQ4CA8sZiQkKBvXKZz5ODufSThuLhbbjf_EGfdGh3z18eEnEzdMrx6krWJRY2Ll-y8zxylhpXnAxPviHVPGSIckjEhUk8c-ifb6U2gYc" alt="Logo" class="h-10 w-auto object-contain">
-            <p class="font-label-sm text-label-sm text-secondary uppercase mt-2 text-center">Admin Portal</p>
+    <aside id="sidebar" class="w-64 bg-surface-container-high border-r border-secondary/20 flex flex-col h-full shrink-0 fixed md:relative z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out bg-surface-container-high">
+        <div class="p-6 border-b border-secondary/20 flex justify-between items-center">
+            <div class="flex-grow text-center">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU8_gQVR8agiZw55JxeLBoYMO0XlQM9i2CNXdMHEv_ZN1WOlFA3qVT8w3LPQkwM0nFiofBCun5xRVm2XtgpqwJFfHPs4MGdoo_BCAVjTwkE48OljmRpdzw3p18B2l9IaUkCutfX5KyyovDlEszbuD5DgcbBvnFsNsiIaWQ4CA8sZiQkKBvXKZz5ODufSThuLhbbjf_EGfdGh3z18eEnEzdMrx6krWJRY2Ll-y8zxylhpXnAxPviHVPGSIckjEhUk8c-ifb6U2gYc" alt="Logo" class="h-10 w-auto object-contain mx-auto">
+                <p class="font-label-sm text-label-sm text-secondary uppercase mt-2">Admin Portal</p>
+            </div>
+            <button onclick="toggleSidebar()" class="md:hidden text-primary focus:outline-none -mr-2">
+                <span class="material-symbols-outlined">close</span>
+            </button>
         </div>
         <nav class="flex-grow p-4 space-y-2 overflow-y-auto">
             <a href="#" class="nav-item active flex items-center gap-3 px-4 py-3 text-primary hover:bg-surface-variant rounded-lg transition-colors" onclick="switchTab('dashboard')">
@@ -120,11 +128,16 @@
     </aside>
 
     <!-- Main Content Area -->
-    <main class="flex-grow bg-background flex flex-col h-full overflow-hidden relative">
-        <header class="bg-surface/80 backdrop-blur-md p-6 border-b border-secondary/20 flex justify-between items-center z-10">
-            <h1 class="font-subheading-lg text-subheading-lg text-primary" id="page-title">Dashboard Overview</h1>
-            <div class="flex gap-4 items-center">
-                <a href="dashboard.html" class="text-sm text-secondary hover:underline">View Live Site</a>
+    <main class="flex-grow bg-background flex flex-col h-full overflow-hidden relative w-full">
+        <header class="bg-surface/80 backdrop-blur-md p-6 border-b border-secondary/20 flex justify-between items-center z-10 w-full">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleSidebar()" class="md:hidden text-primary focus:outline-none flex items-center justify-center">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+                <h1 class="font-subheading-lg text-subheading-lg text-primary truncate" id="page-title">Dashboard Overview</h1>
+            </div>
+            <div class="flex gap-4 items-center shrink-0">
+                <a href="dashboard.html" class="text-sm text-secondary hover:underline">Live Site</a>
             </div>
         </header>
 
@@ -281,8 +294,30 @@
             });
         });
 
+        // ========== Logic ==========
+        
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
         // Tab Switching
         function switchTab(tabId) {
+            // Close mobile sidebar if open
+            if (window.innerWidth < 768) {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('sidebar-overlay');
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.nav-item').forEach(el => {
                 el.classList.remove('active', 'text-primary');
